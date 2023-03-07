@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;greeting.html&apos; to &apos;templates&apos;&#x0D;&#x0A;- Original project: &apos;demo-4&apos;&#x0D;&#x0A;- Destination element: &apos;templates&apos;&#x0D;&#x0A;- Original element: &apos;greeting.html&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move file" element1="src/main/resources/static/greeting.html" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1677563497221" target="src/main/resources/templates" units="0" version="1.0"/>
+</session>

@@ -1,0 +1,5 @@
+package cat.itacademy.S04T01N01PedroTejero.contollers;
+
+public class HelloWorldController {
+
+}

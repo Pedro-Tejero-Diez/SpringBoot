@@ -18,6 +18,14 @@ public class Fruta {
 	@Column(name = "Cantidad")
 	private int CantidadKilos;
 	
+	public Fruta() {};//hace falta poner el constructor vacío si no, da problemas en alguno de los métodos
+	
+	//este constructor sirve para crear una nueva instancia (la id es autogenerada)
+	public Fruta(String name, int cantidadKilos) {
+		this.name = name;
+		this.CantidadKilos = cantidadKilos;
+	}
+	//este constructor con la id sirve para cuando hacemos búsqueda por id
 	public Fruta(int id, String name, int cantidadKilos) {
 		this.id = id;
 		this.name = name;

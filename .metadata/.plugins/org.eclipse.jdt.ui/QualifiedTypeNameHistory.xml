@@ -15,12 +15,8 @@
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
     <fullyQualifiedTypeName name="jakarta.persistence.Entity"/>
     <fullyQualifiedTypeName name="jakarta.persistence.Table"/>
-    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
     <fullyQualifiedTypeName name="jakarta.transaction.Transactional"/>
-    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="cat.itacademy.barcelonactiva.PedroTejero.s04.t02.n01.model.repository.FrutaRepository"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
     <fullyQualifiedTypeName name="cat.itacademy.barcelonactiva.PedroTejeroS04T02N02.model.repository.FrutaRepository"/>
     <fullyQualifiedTypeName name="cat.itacademy.barcelonactiva.PedroTejeroS04T02N02.model.services.FrutaService"/>
     <fullyQualifiedTypeName name="cat.itacademy.barcelonactiva.PedroTejeroS04T02N02.model.domain.Fruta"/>
@@ -29,4 +25,14 @@
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PutMapping"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.DeleteMapping"/>
+    <fullyQualifiedTypeName name="org.springframework.data.mongodb.core.mapping.Document"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.Id"/>
+    <fullyQualifiedTypeName name="org.springframework.data.mongodb.repository.MongoRepository"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+    <fullyQualifiedTypeName name="PedroTejeroS04T02N03.model.repository.FrutaRepository"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="PedroTejeroS04T02N03.model.services.FrutaServices"/>
+    <fullyQualifiedTypeName name="PedroTejeroS04T02N03.model.domain.Fruta"/>
 </qualifiedTypeNameHistroy>

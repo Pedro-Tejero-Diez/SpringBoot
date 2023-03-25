@@ -14,7 +14,6 @@ public class Fruta {
 	public  Fruta() {};
 	
 	public Fruta(int id, String name, int cantidadKilos) {
-		super();
 		this.id = id;
 		this.name = name;
 		this.cantidadKilos = cantidadKilos;

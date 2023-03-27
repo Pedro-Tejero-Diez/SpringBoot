@@ -37,6 +37,8 @@ public class FrutaServices {
 			fruta3.setId(fruta.getId());
 			fruta3.setName(fruta.getName());
 			fruta3.setCantidadKilos(fruta.getCantidadKilos());
+			repo.deleteById(id);
+			repo.save(fruta3);
 			return fruta3;
 		} else
 			return null;

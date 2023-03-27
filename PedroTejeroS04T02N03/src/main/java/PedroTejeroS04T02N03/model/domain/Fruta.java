@@ -13,6 +13,12 @@ public class Fruta {
 	
 	public  Fruta() {};
 	
+	public Fruta(String name, int cantidadKilos) {
+
+		this.name = name;
+		this.cantidadKilos = cantidadKilos;
+	}
+	
 	public Fruta(int id, String name, int cantidadKilos) {
 		this.id = id;
 		this.name = name;

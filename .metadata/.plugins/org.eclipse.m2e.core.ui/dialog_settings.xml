@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="C:\Users\pedro\Spring workspace\demoThymeleaf"/>
 			<item value="C:\Users\pedro\Spring workspace\S04T02N01PedroTejero"/>
 			<item value="C:\Users\pedro\Spring workspace\demo"/>
 			<item value="C:\Users\pedro\Spring workspace\S04T01N01PedroTejeroDiez"/>

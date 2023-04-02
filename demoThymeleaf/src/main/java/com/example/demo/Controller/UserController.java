@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.dto.User;
 import com.example.demo.repository.UserRepository;
@@ -19,51 +20,50 @@ public class UserController {
 	UserRepository repo;
     
     @GetMapping("/signup")
-    public String showSignUpForm(Model model) {
-    	model.addAttribute("greeting", new User());
-        return "greeting";
+    public ModelAndView showSignUpForm(Model model) {
+    	return new ModelAndView("signup", "User", new User());
     }
     
-    @PostMapping("/adduser")
-    public String addUser(@Validated User user, BindingResult result, Model model) {
-        if (result.hasErrors()) {
-            return "add-user";
-        }
+    @PostMapping("/addUser")
+    public String addUser(User User) {
+        /*if (result.hasErrors()) {
+            return "addUser";
+        }*/
         
-        repo.save(user);
+        repo.save(User);
         return "redirect:/index";
     }
 
     @GetMapping("/index")
     public String showUserList(Model model) {
-        model.addAttribute("users", repo.findAll());
+        model.addAttribute("Users", repo.findAll());
         return "index";
     }
     @GetMapping("/edit/{id}")
     public String showUpdateForm(@PathVariable("id") long id, Model model) {
-        User user = repo.findById(id)
-          .orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
+        User User = repo.findById(id)
+          .orElseThrow(() -> new IllegalArgumentException("Invalid User Id:" + id));
         
-        model.addAttribute("user", user);
-        return "update-user";
+        model.addAttribute("User", User);
+        return "update-User";
     }
     @PostMapping("/update/{id}")
-    public String updateUser(@PathVariable("id") long id, @Validated User user, 
+    public String updateUser(@PathVariable("id") long id, @Validated User User, 
       BindingResult result, Model model) {
         if (result.hasErrors()) {
-            user.setId(id);
-            return "update-user";
+            User.setId(id);
+            return "update-User";
         }
             
-        repo.save(user);
+        repo.save(User);
         return "redirect:/index";
     }
         
     @GetMapping("/delete/{id}")
     public String deleteUser(@PathVariable("id") long id, Model model) {
-        User user = repo.findById(id)
-          .orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
-        repo.delete(user);
+        User User = repo.findById(id)
+          .orElseThrow(() -> new IllegalArgumentException("Invalid User Id:" + id));
+        repo.delete(User);
         return "redirect:/index";
     }
 }

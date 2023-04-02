@@ -1,6 +1,6 @@
 eclipse.preferences.version=1
-executionsView.headerDurationColumnWidth=100
-executionsView.headerNameColumnWidth=600
+executionsView.headerDurationColumnWidth=183
+executionsView.headerNameColumnWidth=361
 tasksView.flattenProjectHierarchy=false
 tasksView.groupTasks=true
 tasksView.headerDescriptionColumnWidth=400

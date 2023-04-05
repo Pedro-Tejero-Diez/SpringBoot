@@ -7,7 +7,6 @@
     <fullyQualifiedTypeName name="org.springframework.boot.autoconfigure.EnableAutoConfiguration"/>
     <fullyQualifiedTypeName name="org.springframework.context.annotation.ComponentScan"/>
     <fullyQualifiedTypeName name="org.springframework.context.annotation.Configuration"/>
-    <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
     <fullyQualifiedTypeName name="org.springframework.boot.autoconfigure.SpringBootApplication"/>
     <fullyQualifiedTypeName name="org.springframework.boot.SpringApplication"/>
     <fullyQualifiedTypeName name="jakarta.transaction.Transactional"/>
@@ -18,7 +17,6 @@
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
     <fullyQualifiedTypeName name="org.springframework.data.mongodb.core.mapping.Document"/>
     <fullyQualifiedTypeName name="org.springframework.data.mongodb.repository.MongoRepository"/>
-    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
     <fullyQualifiedTypeName name="PedroTejeroS04T02N03.model.repository.FrutaRepository"/>
     <fullyQualifiedTypeName name="PedroTejeroS04T02N03.model.services.FrutaServices"/>
     <fullyQualifiedTypeName name="PedroTejeroS04T02N03.model.domain.Fruta"/>
@@ -32,7 +30,6 @@
     <fullyQualifiedTypeName name="com.example.demo.dto.User"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
     <fullyQualifiedTypeName name="org.springframework.validation.BindingResult"/>
-    <fullyQualifiedTypeName name="org.springframework.ui.Model"/>
     <fullyQualifiedTypeName name="com.example.demo.repository.UserRepository"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
     <fullyQualifiedTypeName name="org.hibernate.validator.constraints.NotBlank"/>
@@ -59,4 +56,7 @@
     <fullyQualifiedTypeName name="cat.itacademy.barcelonactiva.PedroTejeroS05T01N01.model.dto.SucursalMapper"/>
     <fullyQualifiedTypeName name="cat.itacademy.barcelonactiva.PedroTejeroS05T01N01.model.dto.SucursalDTO"/>
     <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
+    <fullyQualifiedTypeName name="org.springframework.ui.Model"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
 </qualifiedTypeNameHistroy>

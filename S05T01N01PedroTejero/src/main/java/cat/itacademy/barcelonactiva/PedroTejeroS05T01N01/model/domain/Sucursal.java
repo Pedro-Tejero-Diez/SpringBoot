@@ -22,6 +22,12 @@ public class Sucursal {
 	private String pais;
 	
 	public Sucursal () {}
+	
+	public Sucursal(String nombre, String pais) {
+		
+		this.nombre = nombre;
+		this.pais = pais;
+	}
 
 	public Sucursal(Integer pk_SucursalID, String nombre, String pais) {
 		this.pk_SucursalID = pk_SucursalID;

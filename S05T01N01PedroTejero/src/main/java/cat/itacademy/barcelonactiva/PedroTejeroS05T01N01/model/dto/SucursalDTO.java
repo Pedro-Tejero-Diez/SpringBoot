@@ -1,28 +1,40 @@
 package cat.itacademy.barcelonactiva.PedroTejeroS05T01N01.model.dto;
 
-import java.util.ArrayList;
+
 import java.util.Arrays;
 import java.util.List;
 
 public class SucursalDTO {
-	
+
 	private Integer id;
 	private String name;
-	private  String pais;
+	private String pais;
 	private String tipoSucursal;
-	private ArrayList<String> paises= (ArrayList<String>) Arrays.asList("España", "Portugal", "Italia", "Grecia", "Francia", "Austria");
-	
-	
-	public SucursalDTO () {};
+
+	public SucursalDTO() {
+	};
 
 	public SucursalDTO(String name, String pais) {
-		
+
 		this.name = name;
 		this.pais = pais;
-		int i=0;
-		while(pais!=index) {
-			
-		}
+
+	}
+
+	public SucursalDTO(String name, String pais, String tiposucursal) {
+
+		this.name = name;
+		this.pais = pais;
+		this.tipoSucursal = tiposucursal;
+
+	}
+
+	public SucursalDTO(Integer id, String name, String pais, String tipoSucursal) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.pais = pais;
+		this.tipoSucursal = tipoSucursal;
 	}
 
 	public Integer getId() {
@@ -57,19 +69,9 @@ public class SucursalDTO {
 		this.tipoSucursal = tipoSucursal;
 	}
 
-	public ArrayList<String> getPaises() {
-		return paises;
-	}
-
-	public void setPaises(ArrayList<String> paises) {
-		this.paises = paises;
-	}
-	
-	public List<String> addcountry () {
+	public List<String> addcountry() {
 		return Arrays.asList("España", "Portugal", "Italia", "Grecia", "Francia", "Austria");
-		
+
 	}
-	
-	
 
 }

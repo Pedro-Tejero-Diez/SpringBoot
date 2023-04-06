@@ -8,6 +8,7 @@
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="vuelta"/>
 			<item value="user"/>
 			<item value="nombre"/>
 			<item value="spring"/>

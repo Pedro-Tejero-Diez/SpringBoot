@@ -10,14 +10,25 @@ public class SucursalDTO {
 	private String name;
 	private String pais;
 	private String tipoSucursal;
+	private List<String> paises;
 
-	public SucursalDTO() {
-	};
+	public SucursalDTO() {	};
 
 	public SucursalDTO(String name, String pais) {
 
 		this.name = name;
 		this.pais = pais;
+		paises.add("Portugal");
+		paises.add("España");
+		paises.add("Francia");
+		paises.add("Italia");
+		paises.add("Grecia");
+		
+		for (int i= 0;i<paises.size();i++) {
+			if (paises.get(i).equalsIgnoreCase(pais)) {
+				this.tipoSucursal="UE";
+			} else this.tipoSucursal="no UE";
+		}
 
 	}
 
@@ -30,7 +41,7 @@ public class SucursalDTO {
 	}
 
 	public SucursalDTO(Integer id, String name, String pais, String tipoSucursal) {
-		super();
+		
 		this.id = id;
 		this.name = name;
 		this.pais = pais;

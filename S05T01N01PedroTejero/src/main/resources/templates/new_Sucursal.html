@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>sucursal Management System</title>
+    <link rel="stylesheet" href="C:\Users\pedro\Spring workspace\demoThymeleaf\src\main\resources\templates">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Sistema de control de sucursales</h1>
+        <hr>
+        <h2>Guardar Sucursal</h2>
+
+        <form action="#" th:action="@{/add}" th:object="${sucursaldto}" method="POST">
+            <input type="text" th:field="*{name}" placeholder="Sucursal Name" class="form-control mb-3 col-3">
+
+            <input type="text" th:field="*{pais}" placeholder="Pais" class="form-control mb-3 col-3">
+
+            <button type="submit" class="btn btn-info btn-lg"> Guardar Sucursal</button>
+        </form>
+
+        <hr>
+
+        <a th:href="@{/Sucursal/getAll}"> Vuelta al Listado</a>
+    </div>
+</body>
+
+</html>

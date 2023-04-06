@@ -14,7 +14,6 @@
     <fullyQualifiedTypeName name="cat.itacademy.barcelonactiva.PedroTejeroS04T02N02.model.repository.FrutaRepository"/>
     <fullyQualifiedTypeName name="cat.itacademy.barcelonactiva.PedroTejeroS04T02N02.model.services.FrutaService"/>
     <fullyQualifiedTypeName name="cat.itacademy.barcelonactiva.PedroTejeroS04T02N02.model.domain.Fruta"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
     <fullyQualifiedTypeName name="org.springframework.data.mongodb.core.mapping.Document"/>
     <fullyQualifiedTypeName name="org.springframework.data.mongodb.repository.MongoRepository"/>
     <fullyQualifiedTypeName name="PedroTejeroS04T02N03.model.repository.FrutaRepository"/>
@@ -28,7 +27,6 @@
     <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
     <fullyQualifiedTypeName name="com.example.demo.dto.User"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
     <fullyQualifiedTypeName name="org.springframework.validation.BindingResult"/>
     <fullyQualifiedTypeName name="com.example.demo.repository.UserRepository"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
@@ -51,12 +49,14 @@
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
     <fullyQualifiedTypeName name="java.util.List"/>
-    <fullyQualifiedTypeName name="cat.itacademy.barcelonactiva.PedroTejeroS05T01N01.model.domain.Sucursal"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
-    <fullyQualifiedTypeName name="cat.itacademy.barcelonactiva.PedroTejeroS05T01N01.model.dto.SucursalMapper"/>
-    <fullyQualifiedTypeName name="cat.itacademy.barcelonactiva.PedroTejeroS05T01N01.model.dto.SucursalDTO"/>
     <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
     <fullyQualifiedTypeName name="org.springframework.ui.Model"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
+    <fullyQualifiedTypeName name="cat.itacademy.barcelonactiva.PedroTejeroS05T01N01.model.dto.SucursalDTO"/>
+    <fullyQualifiedTypeName name="cat.itacademy.barcelonactiva.PedroTejeroS05T01N01.model.dto.SucursalMapper"/>
+    <fullyQualifiedTypeName name="cat.itacademy.barcelonactiva.PedroTejeroS05T01N01.model.domain.Sucursal"/>
 </qualifiedTypeNameHistroy>

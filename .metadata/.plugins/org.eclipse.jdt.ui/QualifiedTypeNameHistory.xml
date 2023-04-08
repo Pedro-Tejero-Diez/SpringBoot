@@ -46,7 +46,6 @@
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
     <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
     <fullyQualifiedTypeName name="org.springframework.ui.Model"/>
@@ -57,7 +56,8 @@
     <fullyQualifiedTypeName name="cat.itacademy.barcelonactiva.PedroTejeroS05T01N01.model.dto.SucursalDTO"/>
     <fullyQualifiedTypeName name="cat.itacademy.barcelonactiva.PedroTejeroS05T01N01.model.dto.SucursalMapper"/>
     <fullyQualifiedTypeName name="cat.itacademy.barcelonactiva.PedroTejeroS05T01N01.model.domain.Sucursal"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PutMapping"/>
     <fullyQualifiedTypeName name="org.apache.el.stream.Optional"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
 </qualifiedTypeNameHistroy>

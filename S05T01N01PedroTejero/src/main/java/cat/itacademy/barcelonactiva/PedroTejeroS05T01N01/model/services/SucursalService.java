@@ -10,7 +10,7 @@ public interface SucursalService {
 	List<Sucursal> getAllSucursal ();
 	void saveSucursal (Sucursal sucursal);
 	Sucursal getSucursalbyId (int id);
-	void deleteSucursal (int id);
+	boolean deleteSucursal (int id);
 	
 	
 }

@@ -1,6 +1,7 @@
 package cat.itacademy.barcelonactiva.PedroTejeroS05T01N01.model.dto;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class SucursalDTO {
 
@@ -16,8 +17,7 @@ public class SucursalDTO {
 		this.id = id;
 		this.name = name;
 		this.pais = pais;
-		//tipoSucursal = ubicacion(pais);
-
+		//this.tipoSucursal=ubicacion(pais);
 	}
 
 	public SucursalDTO(int id, String name, String pais, String tiposucursal) {
@@ -69,7 +69,7 @@ public class SucursalDTO {
 	}
 	
 	public String ubicacion (String pais) {
-		ArrayList<String> paises = new ArrayList<String>();
+		List<String>paises=new ArrayList<String>();
 		paises.add("Portugal");
 		paises.add("España");
 		paises.add("Francia");
@@ -81,7 +81,9 @@ public class SucursalDTO {
 		while (i < paises.size() || !match) {
 			if (paises.get(i).equalsIgnoreCase(pais)) {
 				match = true;
+				
 			}
+			i++;
 		}
 		if (match) {
 			return "UE";

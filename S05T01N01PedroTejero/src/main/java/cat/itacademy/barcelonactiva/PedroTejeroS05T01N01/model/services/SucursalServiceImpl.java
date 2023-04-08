@@ -38,8 +38,13 @@ public class SucursalServiceImpl implements SucursalService {
 	}
 
 	@Override
-	public void deleteSucursal(int id) {
-		sucursalrepository.deleteById(id);
+	public boolean deleteSucursal(int id) {
+
+		Optional<Sucursal> sucursal = sucursalrepository.findById(id);
+		if (sucursal.isPresent()) {
+			sucursalrepository.deleteById(sucursal.get().getPk_SucursalID());
+			return true;
+		} else return false;
 
 	}
 

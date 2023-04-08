@@ -11,7 +11,7 @@ public class SucursalMapper {
 		Integer id = sucursal.getPk_SucursalID();
 		String nombre = sucursal.getNombre();
 		String pais = sucursal.getPais();
-
+	
 		return new SucursalDTO(id, nombre, pais);
 	}
 

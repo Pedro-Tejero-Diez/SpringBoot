@@ -33,21 +33,25 @@ public class SucursalController {
 					.map(SucursalMapper::toSucursalDto).collect(Collectors.toList()));
 			return "index";
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
-			return "error";
+			
+			return "/Sucursal/error";
 		}
 	}
 
 	@GetMapping("/getOne/{id}")
 	public String mostrarUna(@PathVariable(value = "id") int id, Model model) {
-		Sucursal sucursal = sucursalserviceimpl.getSucursalbyId(id);
-		if (sucursal != null) {
-			SucursalDTO sucursaldto = SucursalMapper.toSucursalDto(sucursal);
-			model.addAttribute("SucursalDTO", sucursaldto);
-			return "showone";
-		} else
-			return "sucursal no encontrada";
 
+		try {
+			Sucursal sucursal = sucursalserviceimpl.getSucursalbyId(id);
+			if (sucursal != null) {
+				SucursalDTO sucursaldto = SucursalMapper.toSucursalDto(sucursal);
+				model.addAttribute("SucursalDTO", sucursaldto);
+				return "showone";
+			} else
+				return "sucursal no encontrada";
+		} catch (Exception e) {
+			return "/Sucursal/error";
+		}
 	}
 
 	@GetMapping("/nuevasucursal")
@@ -60,7 +64,7 @@ public class SucursalController {
 	@PostMapping("/add")
 	public String guardarSucursalDTO(@ModelAttribute("sucursaldto") SucursalDTO sucursaldto) {
 		sucursalserviceimpl.saveSucursal(SucursalMapper.toSucursal(sucursaldto));
-		return "redirect:/Sucursal/getAll";
+		return "/Sucursal/getAll";
 	}
 
 	@PutMapping("/update")
@@ -71,8 +75,15 @@ public class SucursalController {
 
 	@GetMapping("/deleteSucursal/{id}")
 	public String borrarSucursal(@PathVariable(value = "id") int id) {
-		sucursalserviceimpl.deleteSucursal(id);
-		return "redirect:/Sucursal/getAll";
-	}
+		//try {
+			if (sucursalserviceimpl.deleteSucursal(id)) {
 
+				return "/Sucursal/getAll";
+			} else {
+				return "datos no encontrados";
+			}
+		/*} catch (Exception e) {
+			return "/Sucursal/error";
+		}*/
+	}
 }

@@ -26,9 +26,15 @@ public class SucursalServiceImpl implements SucursalService {
 	}
 
 	@Override
-	public Optional<Sucursal> getSucursalbyId(int id) {
+	public Sucursal getSucursalbyId(int id) {
 
-		return sucursalrepository.findById(id);
+		Optional<Sucursal> sucursal = sucursalrepository.findById(id);
+		if (sucursal.isPresent()) {
+			Sucursal sucursal1 = sucursal.get();
+			return sucursal1;
+		} else
+			return null;
+
 	}
 
 	@Override

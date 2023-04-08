@@ -19,7 +19,6 @@
     <fullyQualifiedTypeName name="PedroTejeroS04T02N03.model.repository.FrutaRepository"/>
     <fullyQualifiedTypeName name="PedroTejeroS04T02N03.model.services.FrutaServices"/>
     <fullyQualifiedTypeName name="PedroTejeroS04T02N03.model.domain.Fruta"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PutMapping"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.DeleteMapping"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
     <fullyQualifiedTypeName name="jakarta.persistence.GenerationType"/>
@@ -41,7 +40,6 @@
     <fullyQualifiedTypeName name="jakarta.persistence.Id"/>
     <fullyQualifiedTypeName name="jakarta.persistence.GeneratedValue"/>
     <fullyQualifiedTypeName name="jakarta.persistence.Column"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="java.util.Arrays"/>
     <fullyQualifiedTypeName name="java.util.Optional"/>
     <fullyQualifiedTypeName name="cat.itacademy.barcelonactiva.PedroTejeroS05T01N01.model.services.SucursalServiceImpl"/>
@@ -59,4 +57,7 @@
     <fullyQualifiedTypeName name="cat.itacademy.barcelonactiva.PedroTejeroS05T01N01.model.dto.SucursalDTO"/>
     <fullyQualifiedTypeName name="cat.itacademy.barcelonactiva.PedroTejeroS05T01N01.model.dto.SucursalMapper"/>
     <fullyQualifiedTypeName name="cat.itacademy.barcelonactiva.PedroTejeroS05T01N01.model.domain.Sucursal"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PutMapping"/>
+    <fullyQualifiedTypeName name="org.apache.el.stream.Optional"/>
 </qualifiedTypeNameHistroy>

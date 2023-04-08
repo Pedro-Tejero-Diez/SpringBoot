@@ -29,6 +29,8 @@
                     <td th:text="${sucursalDTO.name}"></td>
                     <td th:text="${sucursalDTO.pais}"></td>
                     <td th:text="${sucursalDTO.tipoSucursal}"></td>
+                     <td> <a th:href="@{/Sucursal/getOne/{id}(id=${sucursalDTO.id})}" class="btn btn-primary">Mostrar/Actualizar</a>
+                        <a th:href="@{/Sucursal/deleteSucursal/{id}(id=${sucursalDTO.id})}" class="btn btn-danger">Elmininar</a>
                     </td>
                 </tr>
             </tbody>

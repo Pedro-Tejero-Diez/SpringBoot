@@ -1,8 +1,6 @@
 package cat.itacademy.barcelonactiva.PedroTejeroS05T01N01.model.dto;
 
-
-import java.util.Arrays;
-import java.util.List;
+import java.util.ArrayList;
 
 public class SucursalDTO {
 
@@ -10,30 +8,20 @@ public class SucursalDTO {
 	private String name;
 	private String pais;
 	private String tipoSucursal;
-	private List<String> paises;
 
-	public SucursalDTO() {	};
+	public SucursalDTO() {
+	};
 
-	public SucursalDTO(String name, String pais) {
-
+	public SucursalDTO(int id, String name, String pais) {
+		this.id = id;
 		this.name = name;
 		this.pais = pais;
-		paises.add("Portugal");
-		paises.add("España");
-		paises.add("Francia");
-		paises.add("Italia");
-		paises.add("Grecia");
-		
-		for (int i= 0;i<paises.size();i++) {
-			if (paises.get(i).equalsIgnoreCase(pais)) {
-				this.tipoSucursal="UE";
-			} else this.tipoSucursal="no UE";
-		}
+		//tipoSucursal = ubicacion(pais);
 
 	}
 
-	public SucursalDTO(String name, String pais, String tiposucursal) {
-
+	public SucursalDTO(int id, String name, String pais, String tiposucursal) {
+		this.id = id;
 		this.name = name;
 		this.pais = pais;
 		this.tipoSucursal = tiposucursal;
@@ -41,7 +29,7 @@ public class SucursalDTO {
 	}
 
 	public SucursalDTO(Integer id, String name, String pais, String tipoSucursal) {
-		
+
 		this.id = id;
 		this.name = name;
 		this.pais = pais;
@@ -79,9 +67,27 @@ public class SucursalDTO {
 	public void setTipoSucursal(String tipoSucursal) {
 		this.tipoSucursal = tipoSucursal;
 	}
+	
+	public String ubicacion (String pais) {
+		ArrayList<String> paises = new ArrayList<String>();
+		paises.add("Portugal");
+		paises.add("España");
+		paises.add("Francia");
+		paises.add("Italia");
+		paises.add("Grecia");
+		
+		int i = 0;
+		boolean match = false;
+		while (i < paises.size() || !match) {
+			if (paises.get(i).equalsIgnoreCase(pais)) {
+				match = true;
+			}
+		}
+		if (match) {
+			return "UE";
 
-	public List<String> addcountry() {
-		return Arrays.asList("España", "Portugal", "Italia", "Grecia", "Francia", "Austria");
+		} else
+			return "no UE";
 
 	}
 

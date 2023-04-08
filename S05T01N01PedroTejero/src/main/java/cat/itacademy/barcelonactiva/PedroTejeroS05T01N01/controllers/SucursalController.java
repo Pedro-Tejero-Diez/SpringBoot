@@ -2,12 +2,15 @@ package cat.itacademy.barcelonactiva.PedroTejeroS05T01N01.controllers;
 
 import java.util.stream.Collectors;
 
+import org.apache.el.stream.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import cat.itacademy.barcelonactiva.PedroTejeroS05T01N01.model.domain.Sucursal;
@@ -33,21 +36,43 @@ public class SucursalController {
 			System.out.println(e.getMessage());
 			return "error";
 		}
+	}
+
+	@GetMapping("/getOne/{id}")
+	public String mostrarUna(@PathVariable(value = "id") int id, Model model) {
+		Sucursal sucursal = sucursalserviceimpl.getSucursalbyId(id);
+		if (sucursal != null) {
+			SucursalDTO sucursaldto = SucursalMapper.toSucursalDto(sucursal);
+			model.addAttribute("SucursalDTO", sucursaldto);
+			return "showone";
+		} else
+			return "sucursal no encontrada";
 
 	}
 
 	@GetMapping("/nuevasucursal")
-	public String showNewSucursalForm(Model model) {
-		// create model attribute to bind form data
+	public String nuevaSucursal(Model model) {
 		SucursalDTO sucursaldto = new SucursalDTO();
 		model.addAttribute("sucursaldto", sucursaldto);
 		return "new_Sucursal";
 	}
 
 	@PostMapping("/add")
-	public String saveSucursalDTO(@ModelAttribute("sucursaldto") SucursalCreationDTO sucursaldto) {
+	public String guardarSucursalDTO(@ModelAttribute("sucursaldto") SucursalDTO sucursaldto) {
 		sucursalserviceimpl.saveSucursal(SucursalMapper.toSucursal(sucursaldto));
-		return "redirect: /getAll";
+		return "redirect:/Sucursal/getAll";
+	}
+
+	@PutMapping("/update")
+	public String actualizarSucursal(@ModelAttribute("sucursalDTO") SucursalDTO sucursaldto) {
+		sucursalserviceimpl.saveSucursal(SucursalMapper.toSucursal(sucursaldto));
+		return "/Sucursal/getAll";
+	}
+
+	@GetMapping("/deleteSucursal/{id}")
+	public String borrarSucursal(@PathVariable(value = "id") int id) {
+		sucursalserviceimpl.deleteSucursal(id);
+		return "redirect:/Sucursal/getAll";
 	}
 
 }

@@ -4,6 +4,7 @@ public class SucursalCreationDTO {
 
 	private String name;
 	private String pais;
+	
 	public String getName() {
 		return name;
 	}

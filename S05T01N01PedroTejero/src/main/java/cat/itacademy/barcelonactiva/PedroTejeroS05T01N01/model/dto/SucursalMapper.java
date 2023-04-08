@@ -11,12 +11,11 @@ public class SucursalMapper {
 		Integer id = sucursal.getPk_SucursalID();
 		String nombre = sucursal.getNombre();
 		String pais = sucursal.getPais();
-		String tiposucursal = "UE";
 
-		return new SucursalDTO(id, nombre, pais, tiposucursal);
+		return new SucursalDTO(id, nombre, pais);
 	}
 
-	public static Sucursal toSucursal(SucursalCreationDTO sucursaldto) {
+	public static Sucursal toSucursal(SucursalDTO sucursaldto) {
 		return new Sucursal(sucursaldto.getName(), sucursaldto.getPais());
 	}
 }

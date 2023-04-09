@@ -11,9 +11,10 @@
     <div class="container">
         <h1>Sistema de control de sucursales</h1>
         <hr>
-        <h2>Guardar Sucursal</h2>
+        <h2>Guardar Nueva Sucursal</h2>
 
         <form action="#" th:action="@{/Sucursal/add}" th:object="${sucursaldto}" method="POST">
+			
             <input type="text" th:field="*{name}" placeholder="Sucursal Name" class="form-control mb-3 col-3">
 
             <input type="text" th:field="*{pais}" placeholder="Pais" class="form-control mb-3 col-3">

@@ -3,8 +3,7 @@
 
 <head>
     <meta charset="ISO-8859-1">
-    <title>Sistema de Control de Sucursales</title>
-
+    <title>sucursal Management System</title>
     <link rel="stylesheet" href="C:\Users\pedro\Spring workspace\demoThymeleaf\src\main\resources\templates">
 </head>
 
@@ -14,7 +13,7 @@
         <hr>
         <h2>Datos Sucursal</h2>
 
-        <form action="#" th:action="@{/Sucursal/update}" th:object="${SucursalDTO}">
+        <form action="#" th:action="@{/Sucursal/update}" th:object="${SucursalDTO}" method="POST" >
 
             <input type="hidden" th:field="*{id}" />
 

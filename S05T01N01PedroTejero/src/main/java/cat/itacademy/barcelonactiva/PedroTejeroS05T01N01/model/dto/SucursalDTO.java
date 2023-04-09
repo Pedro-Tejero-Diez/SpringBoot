@@ -17,7 +17,7 @@ public class SucursalDTO {
 		this.id = id;
 		this.name = name;
 		this.pais = pais;
-		//this.tipoSucursal=ubicacion(pais);
+		this.tipoSucursal=ubicacion(pais);
 	}
 
 	public SucursalDTO(int id, String name, String pais, String tiposucursal) {
@@ -78,7 +78,7 @@ public class SucursalDTO {
 		
 		int i = 0;
 		boolean match = false;
-		while (i < paises.size() || !match) {
+		while (i < paises.size() && !match) {
 			if (paises.get(i).equalsIgnoreCase(pais)) {
 				match = true;
 				

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="ISO-8859-1">
-    <title>Control de Sucursales</title>
+    <title>sucursal Management System</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
@@ -12,8 +12,6 @@
 
     <div class="container my-2">
         <h1>Lista de Sucursales</h1>
-
-        <a th:href="@{/Sucursal/nuevasucursal}" class="btn btn-primary btn-sm mb-3"> Guardar Sucursal </a> 
 
         <table border="1" class="table table-striped table-responsive-md">
             <thead class="thead-dark">
@@ -35,6 +33,8 @@
                 </tr>
             </tbody>
         </table>
+                <a th:href="@{/Sucursal/nuevasucursal}" class="btn btn-primary btn-lg mb-3"> Nueva  Sucursal </a> 
+
     </div>
 </body>
 

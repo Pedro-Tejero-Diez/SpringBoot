@@ -41,7 +41,7 @@ public class SucursalController {
 	@GetMapping("/getOne/{id}")
 	public String mostrarUna(@PathVariable(value = "id") int id, Model model) {
 
-		//try {
+		try {
 			Sucursal sucursal = sucursalserviceimpl.getSucursalbyId(id);
 			if (sucursal != null) {
 				SucursalDTO sucursaldto = SucursalMapper.toSucursalDto(sucursal);
@@ -49,9 +49,9 @@ public class SucursalController {
 				return "showone";
 			} else
 				return "sucursal no encontrada";
-		/*} catch (Exception e) {
+		} catch (Exception e) {
 			return "error";
-		}*/
+		}
 	}
 
 	@GetMapping("/nuevasucursal")
@@ -75,9 +75,10 @@ public class SucursalController {
 	@PostMapping("/update")
 	public String actualizarSucursal(@ModelAttribute("sucursalDTO") SucursalDTO sucursaldto) {
 		try {
-		
-		sucursalserviceimpl.saveSucursal(SucursalMapper.toSucursal(sucursaldto));
+		if (sucursalserviceimpl.deleteSucursal(sucursaldto.getId())) {
+		sucursalserviceimpl.saveSucursal(SucursalMapper.updateSucursal(sucursaldto));
 		return "exito";
+		} return "no encontrado";
 		
 		} catch (Exception e) {
 		return "error";

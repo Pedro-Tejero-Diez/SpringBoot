@@ -18,4 +18,8 @@ public class SucursalMapper {
 	public static Sucursal toSucursal(SucursalDTO sucursaldto) {
 		return new Sucursal(sucursaldto.getName(), sucursaldto.getPais());
 	}
+	
+	public static Sucursal updateSucursal(SucursalDTO sucursaldto) {
+		return new Sucursal(sucursaldto.getId(),sucursaldto.getName(), sucursaldto.getPais());
+	}
 }

@@ -2,7 +2,6 @@ package cat.itacademy.barcelonactiva.PedroTejeroS05T01N01.controllers;
 
 import java.util.stream.Collectors;
 
-import org.apache.el.stream.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,11 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import cat.itacademy.barcelonactiva.PedroTejeroS05T01N01.model.domain.Sucursal;
-import cat.itacademy.barcelonactiva.PedroTejeroS05T01N01.model.dto.SucursalCreationDTO;
 import cat.itacademy.barcelonactiva.PedroTejeroS05T01N01.model.dto.SucursalDTO;
 import cat.itacademy.barcelonactiva.PedroTejeroS05T01N01.model.dto.SucursalMapper;
 import cat.itacademy.barcelonactiva.PedroTejeroS05T01N01.model.services.SucursalServiceImpl;
@@ -33,7 +30,7 @@ public class SucursalController {
 					.map(SucursalMapper::toSucursalDto).collect(Collectors.toList()));
 			return "index";
 		} catch (Exception e) {
-			
+
 			return "error";
 		}
 	}
@@ -48,7 +45,7 @@ public class SucursalController {
 				model.addAttribute("SucursalDTO", sucursaldto);
 				return "showone";
 			} else
-				return "sucursal no encontrada";
+				return "sucursal_no_encontrada";
 		} catch (Exception e) {
 			return "error";
 		}
@@ -64,9 +61,12 @@ public class SucursalController {
 	@PostMapping("/add")
 	public String guardarSucursalDTO(@ModelAttribute("sucursaldto") SucursalDTO sucursaldto) {
 		try {
-		
-		sucursalserviceimpl.saveSucursal(SucursalMapper.toSucursal(sucursaldto));
-		return "exito";
+			if (sucursaldto.getName().equals("") || sucursaldto.getPais().equals("")) {
+				return "faltan_datos";
+			} else {
+				sucursalserviceimpl.saveSucursal(SucursalMapper.toSucursal(sucursaldto));
+				return "exito";
+			}
 		} catch (Exception e) {
 			return "error";
 		}
@@ -75,24 +75,24 @@ public class SucursalController {
 	@PostMapping("/update")
 	public String actualizarSucursal(@ModelAttribute("sucursalDTO") SucursalDTO sucursaldto) {
 		try {
-		if (sucursalserviceimpl.deleteSucursal(sucursaldto.getId())) {
-		sucursalserviceimpl.saveSucursal(SucursalMapper.updateSucursal(sucursaldto));
-		return "exito";
-		} return "no encontrado";
-		
+			if (sucursalserviceimpl.deleteSucursal(sucursaldto.getId())) {
+				sucursalserviceimpl.saveSucursal(SucursalMapper.updateSucursal(sucursaldto));
+				return "exito";
+			}
+			return "sucursal_no_encontrada";
+
 		} catch (Exception e) {
-		return "error";
-	}
+			return "error";
+		}
 	}
 
 	@GetMapping("/deleteSucursal/{id}")
 	public String borrarSucursal(@PathVariable(value = "id") int id) {
 		try {
 			if (sucursalserviceimpl.deleteSucursal(id)) {
-
-				return "redirect:/Sucursal/getAll";
+				return "exito";
 			} else {
-				return "datos no encontrados";
+				return "sucursal_no_encontrada";
 			}
 		} catch (Exception e) {
 			return "error";

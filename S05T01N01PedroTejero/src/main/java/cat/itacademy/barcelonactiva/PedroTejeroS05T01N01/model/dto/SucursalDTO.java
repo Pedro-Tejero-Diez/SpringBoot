@@ -75,6 +75,12 @@ public class SucursalDTO {
 		paises.add("Francia");
 		paises.add("Italia");
 		paises.add("Grecia");
+		paises.add("Alemania");
+		paises.add("Belgica");
+		paises.add("Holanda");
+		paises.add("Polonia");
+		paises.add("Austria");
+		paises.add("Irlanda");
 		
 		int i = 0;
 		boolean match = false;

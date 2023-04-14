@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>sucursal Management System</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+
+<body>
+   <div class="container my-4">
+        <h1>Sistema de control de sucursales</h1>
+        <hr>
+        <h2>Guardar Nueva Sucursal</h2>
+
+        <form action="#" th:action="@{/Sucursal/add}" th:object="${sucursaldto}" method="POST">
+			
+            <input type="text" th:field="*{name}" placeholder="Nombre Sucursal" class="form-control mb-3 col-3">
+
+            <input type="text" th:field="*{pais}" placeholder="Pais" class="form-control mb-3 col-3">
+
+           <button class="btn btn-lg btn-primary btn-danger" type="submit" > Guardar Sucursal</button>
+        </form>
+
+        <hr>
+
+        <a th:href="@{/Sucursal/getAll}" class="btn btn-primary btn-sm mb-3"> Vuelta al Listado</a>
+    </div>
+</body>
+
+</html>

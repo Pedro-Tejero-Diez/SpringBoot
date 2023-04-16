@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>JUEGO DE DADOS</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+
+<body>
+   <div class="container my-4">
+        <h1>JUEGO DE DADOS</h1>
+        <hr>
+        <h2>Guardar Nuevo Usuario</h2>
+
+        <form action="#" th:action="@{/Players/add}" th:object="${jugador}" method="POST">
+			
+            <input type="text" th:field="*{nombre}" placeholder="Nombre Usuario" class="form-control mb-3 col-3">
+
+            <input type="text" th:field="*{pwd}" placeholder="Contraseña" class="form-control mb-3 col-3">
+
+           <button class="btn btn-lg btn-primary btn-danger" type="submit" > Guardar Jugador</button>
+        </form>
+
+        <hr>
+    </div>
+</body>
+
+</html>

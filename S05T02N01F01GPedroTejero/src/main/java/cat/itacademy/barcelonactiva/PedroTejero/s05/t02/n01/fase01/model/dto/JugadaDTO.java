@@ -1,103 +1,76 @@
 package cat.itacademy.barcelonactiva.PedroTejero.s05.t02.n01.fase01.model.dto;
 
+import java.time.LocalDate;
+
 public class JugadaDTO {
 
+	private int jugador_id;
+	private LocalDate fechajug;
+	private byte uno;
+	private byte dos;
+	private boolean win;
 
-		private Integer id;
-		private String name;
-		private String pais;
-		private String tipoSucursal;
+	public JugadaDTO() {
+	};
 
-		public SucursalDTO() {
-		};
-
-		public SucursalDTO(int id, String name, String pais) {
-			this.id = id;
-			this.name = name;
-			this.pais = pais;
-			this.tipoSucursal=ubicacion(pais);
-		}
-
-		public SucursalDTO(int id, String name, String pais, String tiposucursal) {
-			this.id = id;
-			this.name = name;
-			this.pais = pais;
-			this.tipoSucursal = tiposucursal;
-
-		}
-
-		public SucursalDTO(Integer id, String name, String pais, String tipoSucursal) {
-
-			this.id = id;
-			this.name = name;
-			this.pais = pais;
-			this.tipoSucursal = tipoSucursal;
-		}
-
-		public Integer getId() {
-			return id;
-		}
-
-		public void setId(Integer id) {
-			this.id = id;
-		}
-
-		public String getName() {
-			return name;
-		}
-
-		public void setName(String name) {
-			this.name = name;
-		}
-
-		public String getPais() {
-			return pais;
-		}
-
-		public void setPais(String pais) {
-			this.pais = pais;
-		}
-
-		public String getTipoSucursal() {
-			return tipoSucursal;
-		}
-
-		public void setTipoSucursal(String tipoSucursal) {
-			this.tipoSucursal = tipoSucursal;
-		}
-		
-		public String ubicacion (String pais) {
-			List<String>paises=new ArrayList<String>();
-			paises.add("Portugal");
-			paises.add("España");
-			paises.add("Francia");
-			paises.add("Italia");
-			paises.add("Grecia");
-			paises.add("Alemania");
-			paises.add("Belgica");
-			paises.add("Holanda");
-			paises.add("Polonia");
-			paises.add("Austria");
-			paises.add("Irlanda");
-			
-			int i = 0;
-			boolean match = false;
-			while (i < paises.size() && !match) {
-				if (paises.get(i).equalsIgnoreCase(pais)) {
-					match = true;
-					
-				}
-				i++;
-			}
-			if (match) {
-				return "UE";
-
-			} else
-				return "no UE";
-
-		}
-
+	public JugadaDTO(int jugador_id) {
+		byte min = 1;
+	    byte max = 6; 
+		this.jugador_id=jugador_id;
+		this.fechajug = LocalDate.now();
+		this.uno = (byte)Math.floor(Math.random() * (max - min + 1) + min);
+		this.dos = (byte)Math.floor(Math.random() * (max - min + 1) + min);
+		this.win = (uno + dos == 7) ? true : false;
 	}
 
+	public JugadaDTO(int jugador_id, LocalDate fechajug, byte uno, byte dos) {
+
+		this.setJugador_id(jugador_id);
+		this.fechajug = fechajug;
+		this.uno = uno;
+		this.dos = dos;
+		this.win = (uno + dos == 7) ? true : false;
+		;
+	}
+
+	public LocalDate getFechajug() {
+		return fechajug;
+	}
+
+	public void setFechajug(LocalDate fechajug) {
+		this.fechajug = fechajug;
+	}
+
+	public byte getUno() {
+		return uno;
+	}
+
+	public void setUno(byte uno) {
+		this.uno = uno;
+	}
+
+	public byte getDos() {
+		return dos;
+	}
+
+	public void setDos(byte dos) {
+		this.dos = dos;
+	}
+
+	public boolean isWin() {
+		return win;
+	}
+
+	public void setWin(boolean win) {
+		this.win = win;
+	}
+
+	public int getJugador_id() {
+		return jugador_id;
+	}
+
+	public void setJugador_id(int jugador_id) {
+		this.jugador_id = jugador_id;
+	}
 
 }

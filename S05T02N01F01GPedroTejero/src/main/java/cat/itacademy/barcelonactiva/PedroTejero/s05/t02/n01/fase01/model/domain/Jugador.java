@@ -1,12 +1,14 @@
 package cat.itacademy.barcelonactiva.PedroTejero.s05.t02.n01.fase01.model.domain;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Jugador {
@@ -16,18 +18,23 @@ public class Jugador {
 	private int jugador_id;
 
 	@Column(name = "fecha de registro")
-	private Date fechareg;
+	private LocalDate fechareg;
 
 	@Column(name = "nombre")
 	private String nombre;
 
 	@Column(name = "contraseña")
 	private String pwd;
+	
+	@OneToMany(mappedBy="jugador")
+    private List<Jugada> jugadas;
+
 
 	public Jugador() {
+		this.fechareg = LocalDate.now();
 	}
 
-	public Jugador(int jugador_id, Date fechareg, String nombre, String pwd) {
+	public Jugador(int jugador_id, LocalDate fechareg, String nombre, String pwd) {
 	
 		this.jugador_id = jugador_id;
 		this.fechareg = fechareg;
@@ -35,7 +42,7 @@ public class Jugador {
 		this.pwd = pwd;
 	}
 	
-	public Jugador(Date fechareg, String nombre, String pwd) {
+	public Jugador(LocalDate fechareg, String nombre, String pwd) {
 		
 		this.fechareg = fechareg;
 		this.nombre = nombre;
@@ -51,11 +58,11 @@ public class Jugador {
 		this.jugador_id = jugador_id;
 	}
 
-	public Date getFechareg() {
+	public LocalDate getFechareg() {
 		return fechareg;
 	}
 
-	public void setFechareg(Date fechareg) {
+	public void setFechareg(LocalDate fechareg) {
 		this.fechareg = fechareg;
 	}
 
@@ -74,5 +81,14 @@ public class Jugador {
 	public void setPwd(String pwd) {
 		this.pwd = pwd;
 	}
+	
+	public List<Jugada> getJugadas() {
+		return jugadas;
+	}
+
+	public void setJugadas(List<Jugada> jugadas) {
+		this.jugadas = jugadas;
+	}
+
 	
 }

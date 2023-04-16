@@ -1,25 +1,28 @@
 package cat.itacademy.barcelonactiva.PedroTejero.s05.t02.n01.fase01.model.dto;
 
+
+import java.time.LocalDate;
+
+import org.springframework.stereotype.Component;
+
+import cat.itacademy.barcelonactiva.PedroTejero.s05.t02.n01.fase01.model.domain.Jugada;
+import cat.itacademy.barcelonactiva.PedroTejero.s05.t02.n01.fase01.model.domain.Jugador;
+
+@Component
 public class JugadaMapper {
 
-	@Component
-	public class SucursalMapper {
+	public static JugadaDTO toJugadaDTO(Jugada jugada) {
+		Integer jugador_id = jugada.getJugador().getJugador_id();
+		LocalDate fechajug = jugada.getFechajug();
+		byte uno = jugada.getUno();
+		byte dos = jugada.getDos();
 
-		public static SucursalDTO toSucursalDto(Sucursal sucursal) {
-			Integer id = sucursal.getPk_SucursalID();
-			String nombre = sucursal.getNombre();
-			String pais = sucursal.getPais();
-		
-			return new SucursalDTO(id, nombre, pais);
-		}
+		return new JugadaDTO(jugador_id, fechajug, uno, dos);
+	}
 
-		public static Sucursal toSucursal(SucursalDTO sucursaldto) {
-			return new Sucursal(sucursaldto.getName(), sucursaldto.getPais());
-		}
+	public static Jugada toJugada(JugadaDTO jugadaDTO, Jugador jugador) {
 		
-		public static Sucursal updateSucursal(SucursalDTO sucursaldto) {
-			return new Sucursal(sucursaldto.getId(),sucursaldto.getName(), sucursaldto.getPais());
-		}
+		return new Jugada(jugador.getJugador_id(),jugadaDTO.getFechajug(), jugadaDTO.getUno(), jugadaDTO.getDos(), jugador); 
 	}
 
 }

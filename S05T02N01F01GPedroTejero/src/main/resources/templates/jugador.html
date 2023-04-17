@@ -23,17 +23,18 @@
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="jugada : ${jugadas}">
-                    <td th:text="${jugada.fechajug}"></td>
-                    <td th:text="${jugada.uno}"></td>
-                    <td th:text="${jugada.dos}"></td>
+                <tr th:each="Jugada : ${jugadas}">
+                    <td th:text="${Jugada.fechajug}"></td>
+                    <td th:text="${Jugada.uno}"></td>
+                    <td th:text="${Jugada.dos}"></td>
+                    <td th:text="${Jugada.win}"></td>
                      <!--<td> <a th:href="@{/Sucursal/getOne/{id}(id=${sucursalDTO.id})}" class="btn btn-primary">Mostrar/Actualizar</a>-->
                         <!--<a th:href="@{/Sucursal/deleteSucursal/{id}(id=${sucursalDTO.id})}" class="btn btn-danger">Elmininar</a>-->
                     </td>
                 </tr>
             </tbody>
         </table>
-                <a th:href="@{/Sucursal/nuevasucursal}" class="btn btn-primary btn-lg mb-3"> Nueva  Sucursal </a> 
+                <!--  <a th:href="@{/Sucursal/nuevasucursal}" class="btn btn-primary btn-lg mb-3"> Nueva  Sucursal </a>--> 
 
     </div>
 </body>

@@ -8,6 +8,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 
 @Entity
@@ -33,6 +35,19 @@ public class Jugador {
 	public Jugador() {
 		this.fechareg = LocalDate.now();
 	}
+	
+	
+
+	public Jugador(int jugador_id, LocalDate fechareg, String nombre, String pwd, List<Jugada> jugadas) {
+		super();
+		this.jugador_id = jugador_id;
+		this.fechareg = fechareg;
+		this.nombre = nombre;
+		this.pwd = pwd;
+		this.jugadas = jugadas;
+	}
+
+
 
 	public Jugador(int jugador_id, LocalDate fechareg, String nombre, String pwd) {
 	

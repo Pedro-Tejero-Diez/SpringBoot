@@ -30,7 +30,7 @@ public class JugadaServiceImpl implements JugadaService {
 
 		Jugador jugador = jugadorepository.getReferenceById(jugadadto.getJugador_id());
 
-		jugadarepository.save(new Jugada(jugadadto.getFechajug(), jugadadto.getUno(), jugadadto.getDos(), jugador));
+		jugadarepository.save(new Jugada(jugadadto.getJugador_id(), jugadadto.getFechajug(), jugadadto.getUno(), jugadadto.getDos(), jugador));
 	}
 
 	@Override

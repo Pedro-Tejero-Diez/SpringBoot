@@ -9,7 +9,7 @@
 
 <body>
    <div class="container my-4">
-	    <h1>JUEGO DE DADOS/h1>
+	    <h1>JUEGO DE DADOS</h1>
         <hr>
         <h2>PANTALLA JUGADOR</h2>
 
@@ -27,7 +27,7 @@
                     <td th:text="${Jugada.fechajug}"></td>
                     <td th:text="${Jugada.uno}"></td>
                     <td th:text="${Jugada.dos}"></td>
-                    <td th:text="${Jugada.win}"></td>
+                   <!-- <td th:text="${Jugada.win}"></td>-->
                      <!--<td> <a th:href="@{/Sucursal/getOne/{id}(id=${sucursalDTO.id})}" class="btn btn-primary">Mostrar/Actualizar</a>-->
                         <!--<a th:href="@{/Sucursal/deleteSucursal/{id}(id=${sucursalDTO.id})}" class="btn btn-danger">Elmininar</a>-->
                     </td>
@@ -35,13 +35,10 @@
             </tbody>
         </table>
                 <!--  <a th:href="@{/Sucursal/nuevasucursal}" class="btn btn-primary btn-lg mb-3"> Nueva  Sucursal </a>--> 
-
+<a th:href="@{//games}"class="btn btn-info">JUGAR</a>
     </div>
 </body>
 
-</html>
-        <a th:href="@{/Sucursal/getAll}"class="btn btn-info">Volver al listado</a>
-    </div>
-</body>
+
 
 </html>

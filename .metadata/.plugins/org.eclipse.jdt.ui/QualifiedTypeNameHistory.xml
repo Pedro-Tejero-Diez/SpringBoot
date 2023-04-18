@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
     <fullyQualifiedTypeName name="com.example.demo.dto.User"/>
     <fullyQualifiedTypeName name="org.springframework.validation.BindingResult"/>
@@ -45,7 +44,6 @@
     <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
     <fullyQualifiedTypeName name="cat.itacademy.barcelonactiva.PedroTejero.s05.t02.n01.fase01.model.repository.JugadaRepository"/>
     <fullyQualifiedTypeName name="java.util.Optional"/>
-    <fullyQualifiedTypeName name="cat.itacademy.barcelonactiva.PedroTejero.s05.t02.n01.fase01.model.dto.JugadaDTO"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
     <fullyQualifiedTypeName name="org.springframework.ui.Model"/>
@@ -56,8 +54,10 @@
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="cat.itacademy.barcelonactiva.PedroTejero.s05.t02.n01.fase01.model.repository.JugadorRepository"/>
     <fullyQualifiedTypeName name="cat.itacademy.barcelonactiva.PedroTejero.s05.t02.n01.fase01.model.dto.JugadorDTO"/>
-    <fullyQualifiedTypeName name="cat.itacademy.barcelonactiva.PedroTejero.s05.t02.n01.fase01.model.services.JugadaServiceImpl"/>
     <fullyQualifiedTypeName name="jakarta.persistence.OneToMany"/>
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="org.springframework.data.repository.query.Param"/>
+    <fullyQualifiedTypeName name="cat.itacademy.barcelonactiva.PedroTejero.s05.t02.n01.fase01.model.dto.JugadaDTO"/>
+    <fullyQualifiedTypeName name="cat.itacademy.barcelonactiva.PedroTejero.s05.t02.n01.fase01.model.services.JugadaServiceImpl"/>
+    <fullyQualifiedTypeName name="cat.itacademy.barcelonactiva.PedroTejero.s05.t02.n01.fase01.model.dto.JugadaMapper"/>
 </qualifiedTypeNameHistroy>

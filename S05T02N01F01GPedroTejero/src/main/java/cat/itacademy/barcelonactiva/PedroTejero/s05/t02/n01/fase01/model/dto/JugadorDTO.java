@@ -13,17 +13,16 @@ public class JugadorDTO {
 	private String nombre;
 	private List<Jugada> jugadas;
 	
-	@Autowired
-	JugadaServiceImpl jugadaservice;
+
 
 	public JugadorDTO() {
 	}
 
-	public JugadorDTO(int jugador_id, String nombre) {
+	public JugadorDTO(int jugador_id, String nombre, List<Jugada> jugadas) {
 
 		this.jugador_id = jugador_id;
 		this.nombre = nombre;
-		this.jugadas = jugadaservice.getAllJugadabyJugador(jugador_id);
+		this.jugadas = jugadas;
 	}
 
 	public int getJugador_id() {

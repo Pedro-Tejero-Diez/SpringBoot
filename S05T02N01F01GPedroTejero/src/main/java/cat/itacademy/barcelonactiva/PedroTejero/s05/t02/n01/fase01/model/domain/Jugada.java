@@ -32,12 +32,12 @@ public class Jugada {
 	@Column(name = "dado 2")
 	private byte dos;
 
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-	@JoinColumn(name = "jugador_id", nullable = false)
-	@OnDelete(action = OnDeleteAction.CASCADE)
-	@JsonIgnore	
-	//@ManyToOne
-	//@JoinColumn(name="jugador_id", nullable=false)
+	//@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	//@JoinColumn(name = "jugador_id", nullable = false)
+	//@OnDelete(action = OnDeleteAction.CASCADE)
+	//@JsonIgnore	
+	@ManyToOne
+	@JoinColumn(name="jugador_id", nullable=false)
 	private Jugador jugador;
 
 	public Jugada() {

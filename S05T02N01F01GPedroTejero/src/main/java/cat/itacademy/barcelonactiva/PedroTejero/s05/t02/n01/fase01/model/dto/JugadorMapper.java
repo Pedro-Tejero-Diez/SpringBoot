@@ -11,13 +11,15 @@ public class JugadorMapper {
 
 	public static JugadorDTO toJugadorDTO(Jugador jugador) {
 
-		return new JugadorDTO(jugador.getJugador_id(), jugador.getNombre());
-	}
+		return new JugadorDTO(jugador.getJugador_id(), 
+				jugador.getNombre(), jugador.getJugadas());
+		
+		}
 
 	public static Jugador toJugador(JugadorDTO jugadordto, String pwd) {
-		
+
 		LocalDate fechareg = LocalDate.now();
-		
+
 		return new Jugador(fechareg, jugadordto.getNombre(), pwd);
 
 	}

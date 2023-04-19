@@ -40,14 +40,13 @@ public class JugadorController {
 			return "error";
 		}
 	}
-	@GetMapping("/{jugador_id}")
+	@GetMapping("/{jugador_id}/games")
 	public String pantallaJugador(@PathVariable(value = "jugador_id") int jugador_id, Model model) {
 
 		try {
 			Jugador jugador = jugadorservice.getJugadorbyId(jugador_id);
 			if (jugador != null) {
 				JugadorDTO jugadordto = JugadorMapper.toJugadorDTO(jugador);
-				//model.addAttribute("jugadordto", jugadordto);
 				model.addAttribute("jugadas", jugadordto.getJugadas());
 				return "jugador";
 			} else
@@ -55,28 +54,30 @@ public class JugadorController {
 		} catch (Exception e) {
 			return "error";
 		}
-	}
-	@GetMapping("/{jugador_id}/games")
+	
+	/*@PostMapping("/{jugador_id}/games")
 	public String pantallaJugada(@PathVariable(value = "jugador_id") int jugador_id, Model model) {
 		try {
-			Jugador jugador = jugadorservice.getJugadorbyId(jugador_id);
-			if (jugador != null) {
-				JugadorDTO jugadordto = JugadorMapper.toJugadorDTO(jugador);
-				model.addAttribute("jugadordto", jugadordto);
-				return "jugada";
-			} else
-				return "jugador_no_encontrado";
+				JugadaDTO jugadadto= new JugadaDTO(jugador_id);
+				model.addAttribute("jugadadto", jugadadto);
+				jugadaservice.guardarJugada(jugadadto);
+				return"resultado";
+
+		} catch (Exception e) {
+			return "error";
+		}*/
+	}
+	@PostMapping("/{jugador_id}/games/resultado")
+	public String pantallaJugada(@PathVariable(value = "jugador_id") int jugador_id, Model model) {
+		try {
+				JugadaDTO jugadadto= new JugadaDTO(jugador_id);
+				model.addAttribute("jugadadto", jugadadto);
+				jugadaservice.guardarJugada(jugadadto);
+				return"jugadorjugada";
+
 		} catch (Exception e) {
 			return "error";
 		}
-	}
-	@GetMapping("/{jugador_id}/games/resultado")
-	public String pantallaResultado (@PathVariable(value = "jugador_id") 
-	int jugador_id, Model model) {
-		JugadaDTO jugadadto= new JugadaDTO(jugador_id);
-		model.addAttribute("jugadadto", jugadadto);
-		//jugadaservice.guardarJugada(jugadadto);
-		return"resultado";
 	}
 	
 

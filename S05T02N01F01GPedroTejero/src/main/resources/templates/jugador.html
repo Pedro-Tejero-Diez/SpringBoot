@@ -29,14 +29,13 @@
 					<td th:text="${Jugada.fechajug}"></td>
 					<td th:text="${Jugada.uno}"></td>
 					<td th:text="${Jugada.dos}"></td>
-					<!-- <td th:text="${Jugada.win}"></td>-->
-					<td> <a th:href="@{/{jugador_id}(jugador_id=${jugada.jugador_id})/games/resultado}" class="btn btn-primary">JUGAR</a>
-
+					<td th:text="${Jugada.jugada_id}"></td>
 					</td>
 				</tr>
 			</tbody>
 		</table>
-		<a th:href="@{/games/resultado}" class="btn btn-danger">JUGAR</a>
+		<a th:href="@{/Players/resultado}" class="btn btn-primary btn-lg mb-3"> JUGAR</a>
+
 </body>
 </div>
 

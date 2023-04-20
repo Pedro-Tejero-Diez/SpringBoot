@@ -1,5 +1,8 @@
 package cat.itacademy.barcelonactiva.PedroTejero.s05.t02.n01.fase01.Controllers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,6 +33,14 @@ public class JugadorController {
 		model.addAttribute("jugador", jugador);
 		return"nuevo_jugador";
 	}
+	
+	@GetMapping("/")
+	public String jugadores (Model model) {
+		List<Jugador> jugadores= jugadorservice.getAllJugador();
+		model.addAttribute("jugadores", jugadores);
+		return"listado_jugadores";
+	}
+	
 	@PostMapping("/add")
 	public String guardarJugador(@ModelAttribute("jugador") Jugador jugador) {
 		try {
@@ -54,8 +65,9 @@ public class JugadorController {
 		} catch (Exception e) {
 			return "error";
 		}
+	}
 	
-	/*@PostMapping("/{jugador_id}/games")
+	@PostMapping("/{jugador_id}/games")
 	public String pantallaJugada(@PathVariable(value = "jugador_id") int jugador_id, Model model) {
 		try {
 				JugadaDTO jugadadto= new JugadaDTO(jugador_id);
@@ -65,22 +77,8 @@ public class JugadorController {
 
 		} catch (Exception e) {
 			return "error";
-		}*/
-	}
-	@PostMapping("/{jugador_id}/games/resultado")
-	public String pantallaJugada(@PathVariable(value = "jugador_id") int jugador_id, Model model) {
-		try {
-				JugadaDTO jugadadto= new JugadaDTO(jugador_id);
-				model.addAttribute("jugadadto", jugadadto);
-				jugadaservice.guardarJugada(jugadadto);
-				return"jugadorjugada";
-
-		} catch (Exception e) {
-			return "error";
 		}
 	}
-	
-
 	
 
 }

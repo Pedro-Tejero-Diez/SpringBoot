@@ -2,6 +2,7 @@ package cat.itacademy.barcelonactiva.PedroTejero.s05.t02.n01.fase01.Controllers;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,9 +12,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import cat.itacademy.barcelonactiva.PedroTejero.s05.t02.n01.fase01.model.domain.Jugador;
 import cat.itacademy.barcelonactiva.PedroTejero.s05.t02.n01.fase01.model.dto.JugadaDTO;
+import cat.itacademy.barcelonactiva.PedroTejero.s05.t02.n01.fase01.model.dto.JugadaMapper;
 import cat.itacademy.barcelonactiva.PedroTejero.s05.t02.n01.fase01.model.dto.JugadorDTO;
 import cat.itacademy.barcelonactiva.PedroTejero.s05.t02.n01.fase01.model.dto.JugadorMapper;
 import cat.itacademy.barcelonactiva.PedroTejero.s05.t02.n01.fase01.model.services.JugadaServiceImpl;
@@ -25,6 +28,7 @@ public class JugadorController {
 	
 	@Autowired
 	JugadorServiceImpl jugadorservice;
+	@Autowired
 	JugadaServiceImpl jugadaservice;
 	
 	@GetMapping
@@ -58,7 +62,8 @@ public class JugadorController {
 			Jugador jugador = jugadorservice.getJugadorbyId(jugador_id);
 			if (jugador != null) {
 				JugadorDTO jugadordto = JugadorMapper.toJugadorDTO(jugador);
-				model.addAttribute("jugadas", jugadordto.getJugadas());
+				model.addAttribute("jugadas", jugadordto.getJugadas().stream()
+						.map(JugadaMapper::toJugadaDTO).collect(Collectors.toList()));
 				return "jugador";
 			} else
 				return "jugador_no_encontrado";
@@ -68,12 +73,14 @@ public class JugadorController {
 	}
 	
 	@PostMapping("/{jugador_id}/games")
-	public String pantallaJugada(@PathVariable(value = "jugador_id") int jugador_id, Model model) {
+	public String pantallaJugada(@PathVariable(value = "jugador_id") int jugador_id, 
+			RedirectAttributes ra, Model model) {
 		try {
 				JugadaDTO jugadadto= new JugadaDTO(jugador_id);
-				model.addAttribute("jugadadto", jugadadto);
+				//model.addAttribute("jugadadto", jugadadto);
 				jugadaservice.guardarJugada(jugadadto);
-				return"resultado";
+				ra.addFlashAttribute("jugada",jugadadto);
+				return"redirect:/Players/{jugador_id}/jugada";
 
 		} catch (Exception e) {
 			return "error";

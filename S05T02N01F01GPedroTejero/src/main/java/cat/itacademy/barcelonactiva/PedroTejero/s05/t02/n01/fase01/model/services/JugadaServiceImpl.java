@@ -17,6 +17,7 @@ public class JugadaServiceImpl implements JugadaService {
 
 	@Autowired
 	JugadaRepository jugadarepository;
+	@Autowired
 	JugadorRepository jugadorepository;
 
 	@Override

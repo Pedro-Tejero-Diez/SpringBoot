@@ -4734,3 +4734,4 @@ org.eclipse.core.runtime.CoreException: Could not resolve artifact org.springfra
 2023-04-18 06:32:42,711 [Worker-38: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\pedro\Spring workspace\S05T01N01PedroTejero\src\test\resources
 2023-04-18 18:35:40,071 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
 2023-04-19 07:33:48,085 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-04-20 07:48:16,360 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.

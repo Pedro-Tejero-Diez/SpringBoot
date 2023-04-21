@@ -24,12 +24,12 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="Jugada : ${jugadas}">
+				<tr th:each="JugadaDTO : ${jugadas}">
 
-					<td th:text="${Jugada.fechajug}"></td>
-					<td th:text="${Jugada.uno}"></td>
-					<td th:text="${Jugada.dos}"></td>
-					<td th:text="${Jugada.jugada_id}"></td>
+					<td th:text="${JugadaDTO.fechajug}"></td>
+					<td th:text="${JugadaDTO.uno}"></td>
+					<td th:text="${JugadaDTO.dos}"></td>
+					<td th:text="${JugadaDTO.win}"></td>
 					</td>
 				</tr>
 			</tbody>

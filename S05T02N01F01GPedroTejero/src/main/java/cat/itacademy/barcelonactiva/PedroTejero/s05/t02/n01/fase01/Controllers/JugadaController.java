@@ -19,32 +19,31 @@ import cat.itacademy.barcelonactiva.PedroTejero.s05.t02.n01.fase01.model.service
 @Controller
 @RequestMapping("/Players")
 public class JugadaController {
-	
+
 	@Autowired
 	JugadorServiceImpl jugadorservice;
+	@Autowired
 	JugadaServiceImpl jugadaservice;
-	
-	/*@PostMapping("/{jugador_id}/games")
-	public String pantallaJugada(@ModelAttribute ("jugador_id") int jugador_id, Model model) {
-		try {
-				JugadaDTO jugadadto= new JugadaDTO(jugador_id);
-				model.addAttribute("jugadadto", jugadadto);
-				jugadaservice.guardarJugada(jugadadto);
-				return"resultado";
 
-		} catch (Exception e) {
-			return "error";
-		}
+	/*
+	 * @PostMapping("/{jugador_id}/games") public String
+	 * pantallaJugada(@ModelAttribute ("jugador_id") int jugador_id, Model model) {
+	 * try { JugadaDTO jugadadto= new JugadaDTO(jugador_id);
+	 * model.addAttribute("jugadadto", jugadadto);
+	 * jugadaservice.guardarJugada(jugadadto); return"resultado";
+	 * 
+	 * } catch (Exception e) { return "error"; } } }
+	 */
+
+	@GetMapping("/{jugador_id}/jugada")
+	public String pantallaJugada (@PathVariable("jugador_id") String id,
+            @ModelAttribute("jugada") JugadaDTO jugadadto,
+            Model model) {
+
+			model.addAttribute("jugador_id", id);
+	        model.addAttribute("jugada", jugadadto);
+	        return "jugada";
 	}
-}*/
-	
-	/*@GetMapping("/resultado")
-	public String pantallaJugada(Model model) {
-
-			SucursalDTO sucursaldto = new SucursalDTO();
-			model.addAttribute("sucursaldto", sucursaldto);
-			return "new_Sucursal";*/
-	
 	/*@PostMapping("/games/jugada")
 	public String pantallaJugada(@ModelAttribute ("jugador:id") int jugador_id, Model model) {
 		try {

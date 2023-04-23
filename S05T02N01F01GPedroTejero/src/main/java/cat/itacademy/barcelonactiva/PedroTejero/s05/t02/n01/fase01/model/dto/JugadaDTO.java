@@ -15,11 +15,11 @@ public class JugadaDTO {
 
 	public JugadaDTO(int jugador_id) {
 		byte min = 1;
-	    byte max = 6; 
-		this.jugador_id=jugador_id;
+		byte max = 6;
+		this.jugador_id = jugador_id;
 		this.fechajug = LocalDate.now();
-		this.uno = (byte)Math.floor(Math.random() * (max - min + 1) + min);
-		this.dos = (byte)Math.floor(Math.random() * (max - min + 1) + min);
+		this.uno = (byte) Math.floor(Math.random() * (max - min + 1) + min);
+		this.dos = (byte) Math.floor(Math.random() * (max - min + 1) + min);
 		this.win = (uno + dos == 7) ? true : false;
 	}
 

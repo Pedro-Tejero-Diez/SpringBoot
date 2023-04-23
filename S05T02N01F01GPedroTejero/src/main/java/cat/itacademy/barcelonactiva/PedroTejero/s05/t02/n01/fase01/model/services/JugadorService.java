@@ -13,4 +13,5 @@ public interface JugadorService {
 	boolean deleteJugador(int jugador_id);
 
 	void guardarJugador(Jugador jugador);
+
 }

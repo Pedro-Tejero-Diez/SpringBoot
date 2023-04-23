@@ -2,18 +2,14 @@ package cat.itacademy.barcelonactiva.PedroTejero.s05.t02.n01.fase01.model.dto;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import cat.itacademy.barcelonactiva.PedroTejero.s05.t02.n01.fase01.model.domain.Jugada;
-import cat.itacademy.barcelonactiva.PedroTejero.s05.t02.n01.fase01.model.services.JugadaServiceImpl;
 
 public class JugadorDTO {
 
 	private int jugador_id;
 	private String nombre;
 	private List<Jugada> jugadas;
-	
-
+	private float exito;
 
 	public JugadorDTO() {
 	}
@@ -23,6 +19,13 @@ public class JugadorDTO {
 		this.jugador_id = jugador_id;
 		this.nombre = nombre;
 		this.jugadas = jugadas;
+		float sumatorio = 0;
+		for (int i = 0; i < jugadas.size(); i++) {
+			if ((jugadas.get(i).getUno() + jugadas.get(i).getDos() == 7)) {
+				sumatorio += 1;
+			}
+		}
+		this.setExito((float) (sumatorio / jugadas.size()) * 100);
 	}
 
 	public int getJugador_id() {
@@ -48,6 +51,13 @@ public class JugadorDTO {
 	public void setJugadas(List<Jugada> jugadas) {
 		this.jugadas = jugadas;
 	}
-	
+
+	public float getExito() {
+		return exito;
+	}
+
+	public void setExito(float exito) {
+		this.exito = exito;
+	}
 
 }

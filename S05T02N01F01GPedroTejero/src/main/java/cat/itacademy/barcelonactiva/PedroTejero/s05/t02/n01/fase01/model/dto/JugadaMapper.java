@@ -1,6 +1,5 @@
 package cat.itacademy.barcelonactiva.PedroTejero.s05.t02.n01.fase01.model.dto;
 
-
 import java.time.LocalDate;
 
 import org.springframework.stereotype.Component;
@@ -21,8 +20,9 @@ public class JugadaMapper {
 	}
 
 	public static Jugada toJugada(JugadaDTO jugadaDTO, Jugador jugador) {
-		
-		return new Jugada(jugador.getJugador_id(),jugadaDTO.getFechajug(), jugadaDTO.getUno(), jugadaDTO.getDos(), jugador); 
+
+		return new Jugada(jugador.getJugador_id(), jugadaDTO.getFechajug(), jugadaDTO.getUno(), jugadaDTO.getDos(),
+				jugador);
 	}
 
 }

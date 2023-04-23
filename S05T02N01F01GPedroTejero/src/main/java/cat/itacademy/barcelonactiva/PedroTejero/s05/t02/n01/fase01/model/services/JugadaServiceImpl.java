@@ -50,4 +50,23 @@ public class JugadaServiceImpl implements JugadaService {
 		return jugadarepository.findByJugadorId(jugador_id);
 	}
 
+	@Override
+	public void eliminarJugadas(int jugador_id) {
+
+		Jugador jugador = jugadorepository.getReferenceById(jugador_id);
+		for (int i = 0; i < jugador.getJugadas().size(); i++) {
+			Jugada jugada = jugador.getJugadas().get(i);
+			jugadarepository.delete(jugada);
+		}
+
+		/*
+		 * Jugador jugador = jugadorepository.getReferenceById(jugador_id);
+		 * jugadorepository.getReferenceById(jugador_id).setJugadas(jugadas); if
+		 * (jugador.isPresent()) { List<Jugada> jugadas =null;
+		 * 
+		 * return true; } else return false;
+		 */
+
+	}
+
 }

@@ -12,30 +12,40 @@
 	<div class="container my-4">
 		<h1>JUEGO DE DADOS</h1>
 		<hr>
-		<h2>PANTALLA JUGADORES</h2>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<h1>JUGADORES</h1>
+				</div>
+				<div class=class="col d-grid gap-2 d-md-flex justify-content-md-end">
+					<a th:href="@{/Players/Ranking}" class="btn btn-primary btn-lg mb-3"> Ranking</a>
+				</div>
+			</div>
 
-        <table border="1" class="table table-striped table-bordered">
-            <thead class="thead-dark">
-                <tr>
-                    <th>jugador_id</th>
-                    <th>Nombre</th>
-                    <th>%exito</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="Jugador : ${jugadores}">
-                    <td th:text="${Jugador.jugador_id}"></td>
-                    <td th:text="${Jugador.nombre}"></td>
-                    <td th:text="${Jugador.jugador_id}"></td>
-                     <!--<td> <a th:href="@{/Sucursal/getOne/{id}(id=${sucursalDTO.id})}" class="btn btn-primary">Mostrar/Actualizar</a>-->
-                        <!--<a th:href="@{/Sucursal/deleteSucursal/{id}(id=${sucursalDTO.id})}" class="btn btn-danger">Elmininar</a>-->
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-                <a th:href="@{/Sucursal/nuevasucursal}" class="btn btn-primary btn-lg mb-3"> Nueva  Sucursal </a> 
 
-    </div>
+			<table border="1" class="table table-striped table-bordered">
+				<thead class="thead-dark">
+					<tr>
+						<th>jugador_id</th>
+						<th>Nombre</th>
+						<th>%exito</th>
+						<th>Accion</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="JugadorDTO : ${jugadores}">
+						<td th:text="${JugadorDTO.jugador_id}"></td>
+						<td th:text="${JugadorDTO.nombre}"></td>
+						<td th:text="${JugadorDTO.exito}"></td>
+						<td> <a th:href="@{/Players/{id}/games (id=${JugadorDTO.jugador_id})}"
+								class="btn btn-primary">Mostrar</a>
+							<a th:href="@{/Players/{id}/getOne(id=${JugadorDTO.jugador_id})}"
+								class="btn btn-danger">Actualizar</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 </body>
 
 </html>

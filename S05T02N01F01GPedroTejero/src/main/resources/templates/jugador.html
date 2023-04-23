@@ -11,31 +11,40 @@
 <body>
 	<div class="container my-4">
 		<h1>JUEGO DE DADOS</h1>
-		<hr>
-		<h2>PANTALLA JUGADOR</h2>
+		      <hr>
+		<div class="row">
+    <div class="col">
+		<h1>TIRADAS JUGADOR:   <a th:text = "${jugador.nombre}" th:object="${jugador}"></a></h1>
+    </div>
+		<div class="col d-grid gap-2 d-md-flex justify-content-md-end">
+			<form th:action="@{/Players/{id}/games (id=${jugador.jugador_id})}" th:object="${jugador}" method="POST">
+		<input type="submit" class="btn btn-lg btn-primary" value="NUEVA JUGADA">
+		</form>
+		
+	<form th:action="@{/Players/{id}/deleteListado (id=${jugador.jugador_id})}" th:object="${jugador}">
+		<input type="submit" class="btn btn-lg btn-danger" value="ELIMINAR JUGADAS">
+	</form>
+		</div>
+	<hr>
+	<table border="1" class="table table-striped table-bordered">
+		<thead class="thead-dark">
+			<tr>
+				<th>Fecha Jugada</th>
+				<th>Dado 1</th>
+				<th>Dado 2</th>
+				<th>Win</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="JugadaDTO : ${jugadas}">
 
-		<table border="1" class="table table-striped table-bordered">
-			<thead class="thead-dark">
-				<tr>
-					<th>Fecha Jugada</th>
-					<th>Dado 1</th>
-					<th>Dado 2</th>
-					<th>Win</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr th:each="JugadaDTO : ${jugadas}">
-
-					<td th:text="${JugadaDTO.fechajug}"></td>
-					<td th:text="${JugadaDTO.uno}"></td>
-					<td th:text="${JugadaDTO.dos}"></td>
-					<td th:text="${JugadaDTO.win}"></td>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-		<a th:href="@{/Players/resultado}" class="btn btn-primary btn-lg mb-3"> JUGAR</a>
-
+				<td th:text="${JugadaDTO.fechajug}"></td>
+				<td th:text="${JugadaDTO.uno}"></td>
+				<td th:text="${JugadaDTO.dos}"></td>
+				<td th:text="${JugadaDTO.win}"></td>
+			</tr>
+		</tbody>
+	</table>
 </body>
 </div>
 

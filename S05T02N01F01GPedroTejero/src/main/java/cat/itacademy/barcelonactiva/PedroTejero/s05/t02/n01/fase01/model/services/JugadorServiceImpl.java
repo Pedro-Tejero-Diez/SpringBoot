@@ -7,13 +7,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import cat.itacademy.barcelonactiva.PedroTejero.s05.t02.n01.fase01.model.domain.Jugador;
+import cat.itacademy.barcelonactiva.PedroTejero.s05.t02.n01.fase01.model.dto.JugadorDTO;
 import cat.itacademy.barcelonactiva.PedroTejero.s05.t02.n01.fase01.model.repository.JugadorRepository;
+import jakarta.transaction.Transactional;
 
 @Service
 public class JugadorServiceImpl implements JugadorService {
 
 	@Autowired
 	JugadorRepository jugadorepository;
+
+	@Transactional
+	public Optional<Jugador> updateJugador(int jugador_id, JugadorDTO jugadordto) {
+		return jugadorepository.findById(jugador_id).map(target -> {
+			target.setNombre(jugadordto.getNombre());
+			return target;
+		});
+	}
 
 	@Override
 	public List<Jugador> getAllJugador() {
@@ -22,8 +32,7 @@ public class JugadorServiceImpl implements JugadorService {
 
 	@Override
 	public void guardarJugador(Jugador jugador) {
-		jugadorepository.save(new Jugador(jugador.getFechareg(), 
-				jugador.getNombre(), jugador.getPwd()));
+		jugadorepository.save(new Jugador(jugador.getFechareg(), jugador.getNombre(), jugador.getPwd()));
 
 	}
 
@@ -50,5 +59,4 @@ public class JugadorServiceImpl implements JugadorService {
 			return false;
 
 	}
-	
 }

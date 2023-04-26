@@ -16,7 +16,7 @@ public interface JugadaService {
 
 	Jugada getJugadabyId(int jugada_id);
 
-	void eliminarJugadas(int jugador_id);
+	void eliminarJugadas(String id);
 
 }
 

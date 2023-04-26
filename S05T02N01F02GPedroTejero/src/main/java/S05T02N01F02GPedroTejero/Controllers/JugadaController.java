@@ -22,7 +22,7 @@ public class JugadaController {
 	JugadaServiceImpl jugadaservice;
 
 	@GetMapping("/{jugador_id}/delete")
-	public String borrarListaJugadas(@PathVariable(value = "jugador_id") int id) {
+	public String borrarListaJugadas(@PathVariable(value = "jugador_id") String id) {
 		try {
 			jugadaservice.eliminarJugadas(id);
 
@@ -33,7 +33,7 @@ public class JugadaController {
 	}
 
 	@GetMapping("/{jugador_id}/jugada")
-	public String pantallaJugada(@PathVariable("jugador_id") int id, @ModelAttribute("jugada") JugadaDTO jugadadto,
+	public String pantallaJugada(@PathVariable("jugador_id") String id, @ModelAttribute("jugada") JugadaDTO jugadadto,
 			Model model) {
 		return "jugada";
 	}

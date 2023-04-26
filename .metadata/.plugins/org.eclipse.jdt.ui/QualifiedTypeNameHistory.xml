@@ -40,13 +40,11 @@
     <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.Query"/>
     <fullyQualifiedTypeName name="jakarta.transaction.Transactional"/>
     <fullyQualifiedTypeName name="cat.itacademy.barcelonactiva.PedroTejero.s05.t02.n01.fase01.model.dto.JugadorDTO"/>
-    <fullyQualifiedTypeName name="org.springframework.data.mongodb.core.mapping.DBRef"/>
     <fullyQualifiedTypeName name="org.springframework.data.annotation.Id"/>
     <fullyQualifiedTypeName name="java.util.Date"/>
     <fullyQualifiedTypeName name="java.time.LocalDate"/>
     <fullyQualifiedTypeName name="S05T02N01F02GPedroTejero.model.repository.JugadorRepository"/>
     <fullyQualifiedTypeName name="org.springframework.transaction.annotation.Transactional"/>
-    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
     <fullyQualifiedTypeName name="S05T02N01F02GPedroTejero.model.dto.JugadorMapper"/>
     <fullyQualifiedTypeName name="S05T02N01F02GPedroTejero.model.dto.JugadorDTO"/>
     <fullyQualifiedTypeName name="S05T02N01F02GPedroTejero.model.dto.JugadaMapper"/>
@@ -60,4 +58,6 @@
     <fullyQualifiedTypeName name="S05T02N01F02GPedroTejero.model.services.JugadorServiceImpl"/>
     <fullyQualifiedTypeName name="S05T02N01F02GPedroTejero.model.services.JugadaServiceImpl"/>
     <fullyQualifiedTypeName name="S05T02N01F02GPedroTejero.model.dto.JugadaDTO"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+    <fullyQualifiedTypeName name="org.springframework.data.mongodb.core.mapping.DBRef"/>
 </qualifiedTypeNameHistroy>

@@ -2,27 +2,30 @@ package S05T02N01F02GPedroTejero.model.domain;
 
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.DocumentReference;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 
 @Document(collection="jugadores")
 public class Jugador {
 	@Id
-	private int jugador_id;
+	private String jugador_id;
 	private LocalDate fechareg;
 	private String nombre;
 	private String pwd;
-	@DBRef
+	@DocumentReference
 	private List<Jugada> jugadas;
 	
 	public Jugador() {}
 
-	public Jugador(int jugador_id, LocalDate fechareg, String nombre, String pwd, List<Jugada> jugadas) {
-		super();
+	public Jugador(String jugador_id, LocalDate fechareg, String nombre, String pwd, List<Jugada> jugadas) {
+		
 		this.jugador_id = jugador_id;
 		this.fechareg = fechareg;
 		this.nombre = nombre;
@@ -30,7 +33,7 @@ public class Jugador {
 		this.jugadas = jugadas;
 	}
 	
-	public Jugador(int jugador_id, LocalDate fechareg, String nombre, String pwd) {
+	public Jugador(String jugador_id, LocalDate fechareg, String nombre, String pwd) {
 
 		this.jugador_id = jugador_id;
 		this.fechareg = fechareg;
@@ -45,11 +48,11 @@ public class Jugador {
 		this.pwd = pwd;
 	}
 
-	public int getJugador_id() {
+	public String getJugador_id() {
 		return jugador_id;
 	}
 
-	public void setJugador_id(int jugador_id) {
+	public void setJugador_id(String jugador_id) {
 		this.jugador_id = jugador_id;
 	}
 

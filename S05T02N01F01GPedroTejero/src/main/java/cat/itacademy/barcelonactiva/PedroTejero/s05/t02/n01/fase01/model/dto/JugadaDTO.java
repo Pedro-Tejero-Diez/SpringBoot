@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public class JugadaDTO {
 
-	private int jugador_id;
+	private String jugador_id;
 	private LocalDate fechajug;
 	private byte uno;
 	private byte dos;
@@ -13,7 +13,7 @@ public class JugadaDTO {
 	public JugadaDTO() {
 	};
 
-	public JugadaDTO(int jugador_id) {
+	public JugadaDTO(String jugador_id) {
 		byte min = 1;
 		byte max = 6;
 		this.jugador_id = jugador_id;
@@ -23,7 +23,7 @@ public class JugadaDTO {
 		this.win = (uno + dos == 7) ? true : false;
 	}
 
-	public JugadaDTO(int jugador_id, LocalDate fechajug, byte uno, byte dos) {
+	public JugadaDTO(String jugador_id, LocalDate fechajug, byte uno, byte dos) {
 
 		this.setJugador_id(jugador_id);
 		this.fechajug = fechajug;
@@ -65,11 +65,11 @@ public class JugadaDTO {
 		this.win = win;
 	}
 
-	public int getJugador_id() {
+	public String getJugador_id() {
 		return jugador_id;
 	}
 
-	public void setJugador_id(int jugador_id) {
+	public void setJugador_id(String jugador_id) {
 		this.jugador_id = jugador_id;
 	}
 

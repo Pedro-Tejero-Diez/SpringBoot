@@ -6,50 +6,52 @@ import java.time.LocalDate;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.DocumentReference;
 
 @Document(collection="jugadas")
 public class Jugada {
 	
 	@Id
-	private int jugada_id;
-	private int jugador_id;
+	private String jugada_id;
 	private LocalDate fechajug;
 	private byte uno;
 	private byte dos;
+	@DocumentReference(lazy=true)
+	private Jugador jugador;
 	
 	public Jugada() {}
 
-	public Jugada(int jugada_id, int jugador_id, LocalDate fechajug, byte uno, byte dos) {
-		super();
+	public Jugada(String jugada_id, LocalDate fechajug, byte uno, byte dos, Jugador jugador) {
+		
 		this.jugada_id = jugada_id;
-		this.jugador_id = jugador_id;
+		this.fechajug = fechajug;
+		this.uno = uno;
+		this.dos = dos;
+		this.jugador=jugador;
+	}
+
+	public Jugada(Jugador jugador, LocalDate fechajug, byte uno, byte dos) {
+		
+		this.jugador = jugador;
 		this.fechajug = fechajug;
 		this.uno = uno;
 		this.dos = dos;
 	}
 
-	public Jugada(int jugador_id, LocalDate fechajug, byte uno, byte dos) {
-		super();
-		this.jugador_id = jugador_id;
-		this.fechajug = fechajug;
-		this.uno = uno;
-		this.dos = dos;
-	}
-
-	public int getJugada_id() {
+	public String getJugada_id() {
 		return jugada_id;
 	}
 
-	public void setJugada_id(int jugada_id) {
+	public void setJugada_id(String jugada_id) {
 		this.jugada_id = jugada_id;
 	}
 
-	public int getJugador_id() {
-		return jugador_id;
+	public Jugador getJugador() {
+		return jugador;
 	}
 
-	public void setJugador_id(int jugador_id) {
-		this.jugador_id = jugador_id;
+	public void setJugador(Jugador jugador) {
+		this.jugador = jugador;
 	}
 
 	public LocalDate getFechajug() {

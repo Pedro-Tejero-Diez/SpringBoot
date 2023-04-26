@@ -6,7 +6,7 @@ import S05T02N01F02GPedroTejero.model.domain.Jugada;
 
 public class JugadorDTO {
 
-	private int jugador_id;
+	private String jugador_id;
 	private String nombre;
 	private List<Jugada> jugadas;
 	private float exito;
@@ -14,7 +14,7 @@ public class JugadorDTO {
 	public JugadorDTO() {
 	}
 
-	public JugadorDTO(int jugador_id, String nombre, List<Jugada> jugadas) {
+	public JugadorDTO(String jugador_id, String nombre, List<Jugada> jugadas) {
 
 		this.jugador_id = jugador_id;
 		this.nombre = nombre;
@@ -28,11 +28,11 @@ public class JugadorDTO {
 		this.setExito((float) (sumatorio / jugadas.size()) * 100);
 	}
 
-	public int getJugador_id() {
+	public String getJugador_id() {
 		return jugador_id;
 	}
 
-	public void setJugador_id(int jugador_id) {
+	public void setJugador_id(String jugador_id) {
 		this.jugador_id = jugador_id;
 	}
 

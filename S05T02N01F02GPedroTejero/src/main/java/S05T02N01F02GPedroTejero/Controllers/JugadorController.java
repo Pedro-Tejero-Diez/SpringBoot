@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import S05T02N01F02GPedroTejero.model.domain.Jugada;
 import S05T02N01F02GPedroTejero.model.domain.Jugador;
 import S05T02N01F02GPedroTejero.model.dto.JugadaDTO;
 import S05T02N01F02GPedroTejero.model.dto.JugadaMapper;
@@ -21,7 +22,6 @@ import S05T02N01F02GPedroTejero.model.dto.JugadorDTO;
 import S05T02N01F02GPedroTejero.model.dto.JugadorMapper;
 import S05T02N01F02GPedroTejero.model.services.JugadaService;
 import S05T02N01F02GPedroTejero.model.services.JugadorService;
-
 
 @Controller
 @RequestMapping("/Players")
@@ -60,7 +60,7 @@ public class JugadorController {
 	}
 
 	@GetMapping("/{jugador_id}/games")
-	public String pantallaJugador(@PathVariable(value = "jugador_id") int jugador_id, Model model) {
+	public String pantallaJugador(@PathVariable(value = "jugador_id") String jugador_id, Model model) {
 
 		try {
 			Jugador jugador = jugadorservice.getJugadorbyId(jugador_id);
@@ -78,13 +78,23 @@ public class JugadorController {
 	}
 
 	@PostMapping("/{jugador_id}/games")
-	public String pantallaJugada(@PathVariable(value = "jugador_id") int jugador_id, RedirectAttributes ra,
-			Model model) {
+	public String pantallaJugada(@PathVariable(value = "jugador_id") String jugador_id, @ModelAttribute Jugador jugador,
+			RedirectAttributes ra, Model model) {
 		try {
-			JugadaDTO jugadadto = new JugadaDTO(jugador_id);
+			JugadaDTO jugadadto = new JugadaDTO(jugador);
 			jugadaservice.guardarJugada(jugadadto);
+			jugador.getJugadas().add(JugadaMapper.toJugada(jugadadto));
+			jugadorservice.guardarJugador(jugador);
 			ra.addFlashAttribute("jugada", jugadadto);
 			return "redirect:/Players/{jugador_id}/jugada";
+			// template.save(newBook);
+			// jugadorservice.updateJugadorJugada(jugador_id, jugadadto);
+
+			/*
+			 * template.update(Publisher.class)
+			 * .matching(where("id").is(newBook.publisher.id)) .apply(new
+			 * Update().push("books", newBook)) .first();
+			 */
 
 		} catch (Exception e) {
 			return "error";
@@ -118,7 +128,7 @@ public class JugadorController {
 	}
 
 	@GetMapping("/{jugador_id}/getOne")
-	public String getOneJugador(@PathVariable(value = "jugador_id") int jugador_id, Model model) {
+	public String getOneJugador(@PathVariable(value = "jugador_id") String jugador_id, Model model) {
 
 		try {
 			Jugador jugador = jugadorservice.getJugadorbyId(jugador_id);
@@ -146,7 +156,7 @@ public class JugadorController {
 	}
 
 	@GetMapping("/{jugador_id}/deleteListado")
-	public String eliminarListas(@PathVariable(value = "jugador_id") int jugador_id, RedirectAttributes ra,
+	public String eliminarListas(@PathVariable(value = "jugador_id") String jugador_id, RedirectAttributes ra,
 			Model model) {
 		try {
 			Jugador jugador = jugadorservice.getJugadorbyId(jugador_id);

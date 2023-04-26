@@ -12,17 +12,17 @@ import S05T02N01F02GPedroTejero.model.domain.Jugador;
 public class JugadaMapper {
 
 	public static JugadaDTO toJugadaDTO(Jugada jugada) {
-		Integer jugador_id = jugada.getJugador_id();
+		Jugador jugador = jugada.getJugador();
 		LocalDate fechajug = jugada.getFechajug();
 		byte uno = jugada.getUno();
 		byte dos = jugada.getDos();
 
-		return new JugadaDTO(jugador_id, fechajug, uno, dos);
+		return new JugadaDTO(jugador, fechajug, uno, dos);
 	}
 
-	public static Jugada toJugada(JugadaDTO jugadaDTO, Jugador jugador) {
+	public static Jugada toJugada(JugadaDTO jugadaDTO) {
 
-		return new Jugada(jugador.getJugador_id(), jugadaDTO.getFechajug(), 
+		return new Jugada(jugadaDTO.getJugador(), jugadaDTO.getFechajug(), 
 				jugadaDTO.getUno(), jugadaDTO.getDos());
 	}
 

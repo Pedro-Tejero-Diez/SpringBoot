@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>JUEGO DE DADOS</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+		integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+
+<body>
+	<div class="container my-4">
+		<h1>JUEGO DE DADOS</h1>
+		<hr>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<h1>JUGADORES</h1>
+				</div>
+				<div class=class="col d-grid gap-2 d-md-flex justify-content-md-end">
+					<a th:href="@{/Players/Ranking}" class="btn btn-primary btn-lg mb-3"> Ranking</a>
+				</div>
+			</div>
+
+
+			<table border="1" class="table table-striped table-bordered">
+				<thead class="thead-dark">
+					<tr>
+						<th>jugador_id</th>
+						<th>Nombre</th>
+						<th>%exito</th>
+						<th>Accion</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="JugadorDTO : ${jugadores}">
+						<td th:text="${JugadorDTO.jugador_id}"></td>
+						<td th:text="${JugadorDTO.nombre}"></td>
+						<td th:text="${JugadorDTO.exito}"></td>
+						<td> <a th:href="@{/Players/{id}/games (id=${JugadorDTO.jugador_id})}"
+								class="btn btn-primary">Mostrar</a>
+							<a th:href="@{/Players/{id}/getOne(id=${JugadorDTO.jugador_id})}"
+								class="btn btn-danger">Actualizar</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+</body>
+
+</html>

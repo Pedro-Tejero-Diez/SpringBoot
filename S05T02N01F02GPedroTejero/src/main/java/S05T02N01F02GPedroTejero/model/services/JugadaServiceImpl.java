@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import S05T02N01F02GPedroTejero.model.domain.Jugada;
+import S05T02N01F02GPedroTejero.model.domain.Jugador;
 import S05T02N01F02GPedroTejero.model.dto.JugadaDTO;
 import S05T02N01F02GPedroTejero.model.repository.JugadaRepository;
 import S05T02N01F02GPedroTejero.model.repository.JugadorRepository;
@@ -25,7 +26,7 @@ public class JugadaServiceImpl implements JugadaService {
 	}
 
 	@Override
-	public Jugada getJugadabyId(int jugada_id) {
+	public Jugada getJugadabyId(String jugada_id) {
 		return null;
 
 		/*
@@ -36,9 +37,9 @@ public class JugadaServiceImpl implements JugadaService {
 	}
 
 	@Override
-	public List<Jugada> getAllJugadabyJugador(int jugador_id) {
-		return null;
-		// return jugadarepository.findByJugadorId(jugador_id);
+	public List<Jugada> getAllJugadabyJugador(String jugador_id) {
+		
+	return jugadarepository.findAllByJugador_id(jugador_id);
 	}
 
 	@Override
@@ -53,8 +54,10 @@ public class JugadaServiceImpl implements JugadaService {
 
 	@Override
 	public void guardarJugada(JugadaDTO jugadadto) {
+	
+		Jugador jugador = jugadorepository.findById(jugadadto.getJugador_id()).get();
 
-			jugadarepository.save(new Jugada(jugadadto.getJugador(), jugadadto.getFechajug(), jugadadto.getUno(), jugadadto.getDos()));
+			jugadarepository.save(new Jugada(jugadadto.getFechajug(), jugadadto.getUno(), jugadadto.getDos(), jugador));
 		}
 
 }

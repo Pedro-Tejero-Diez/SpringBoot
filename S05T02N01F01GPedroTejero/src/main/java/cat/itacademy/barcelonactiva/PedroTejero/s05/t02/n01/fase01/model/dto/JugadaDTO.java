@@ -13,10 +13,10 @@ public class JugadaDTO {
 	public JugadaDTO() {
 	};
 
-	public JugadaDTO(String jugador_id) {
+	public JugadaDTO(int jugador_id2) {
 		byte min = 1;
 		byte max = 6;
-		this.jugador_id = jugador_id;
+		this.jugador_id = jugador_id2;
 		this.fechajug = LocalDate.now();
 		this.uno = (byte) Math.floor(Math.random() * (max - min + 1) + min);
 		this.dos = (byte) Math.floor(Math.random() * (max - min + 1) + min);

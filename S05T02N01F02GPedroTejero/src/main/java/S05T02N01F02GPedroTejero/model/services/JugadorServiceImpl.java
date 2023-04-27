@@ -24,13 +24,22 @@ public class JugadorServiceImpl implements JugadorService {
 			jugadorepository.findById(jugador_id).get().setNombre(jugadordto.getNombre());
 			
 	}
+
+
+
+	@Override
+	public Optional<Jugador> updateJugadorJugada(String jugador_id, JugadaDTO jugadadto) {
+		// TODO Auto-generated method stub
+		return Optional.empty();
+	}
+	
 	/*@Transactional
 	public Optional<Jugador> updateJugadorJugada(String jugador_id, JugadaDTO jugadadto) {
-		return jugadorepository.findById(jugador_id)..map(target -> {
+		return jugadorepository.findById(jugador_id).map(target -> {
 			target.getJugadas().add(JugadaMapper.toJugada(jugadadto));
 			return target;
-			});*/
-	
+			});
+	}*/
 
 
 	@Override
@@ -66,14 +75,6 @@ public class JugadorServiceImpl implements JugadorService {
 		} else
 			return false;
 
-	}
-
-
-
-	@Override
-	public Optional<Jugador> updateJugadorJugada(String jugador_id, JugadaDTO jugadadto) {
-		// TODO Auto-generated method stub
-		return Optional.empty();
 	}
 
 

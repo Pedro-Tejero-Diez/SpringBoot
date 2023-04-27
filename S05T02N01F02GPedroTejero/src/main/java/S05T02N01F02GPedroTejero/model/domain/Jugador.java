@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.ReadOnlyProperty;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.DocumentReference;
@@ -14,12 +15,14 @@ import org.springframework.data.mongodb.core.mapping.Field;
 
 @Document(collection="jugadores")
 public class Jugador {
+	
 	@Id
 	private String jugador_id;
 	private LocalDate fechareg;
 	private String nombre;
 	private String pwd;
-	//	@DocumentReference
+	//@ReadOnlyProperty
+	//@DocumentReference(lookup="{'jugador':#{#self._id} }")
 	//private List<Jugada> jugadas;
 	
 	public Jugador() {}
@@ -36,14 +39,14 @@ public class Jugador {
 	public Jugador(String jugador_id, LocalDate fechareg, String nombre, String pwd) {
 
 		this.jugador_id = jugador_id;
-		this.fechareg = LocalDate.now();
+		this.fechareg = fechareg;
 		this.nombre = nombre;
 		this.pwd = pwd;
 
 }
 	public Jugador(LocalDate fechareg, String nombre, String pwd) {
 
-		this.fechareg = fechareg;
+		this.fechareg = LocalDate.now();
 		this.nombre = nombre;
 		this.pwd = pwd;
 	}

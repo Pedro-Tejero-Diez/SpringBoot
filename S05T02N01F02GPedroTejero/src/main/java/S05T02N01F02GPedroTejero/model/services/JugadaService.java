@@ -12,9 +12,9 @@ public interface JugadaService {
 
 	void guardarJugada(JugadaDTO jugadadto);
 
-	List<Jugada> getAllJugadabyJugador(int jugador_id);
+	List<Jugada> getAllJugadabyJugador(String jugador_id);
 
-	Jugada getJugadabyId(int jugada_id);
+	Jugada getJugadabyId(String jugada_id);
 
 	void eliminarJugadas(String id);
 

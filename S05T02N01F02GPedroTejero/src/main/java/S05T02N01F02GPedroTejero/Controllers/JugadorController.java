@@ -21,16 +21,18 @@ import S05T02N01F02GPedroTejero.model.dto.JugadaMapper;
 import S05T02N01F02GPedroTejero.model.dto.JugadorDTO;
 import S05T02N01F02GPedroTejero.model.dto.JugadorMapper;
 import S05T02N01F02GPedroTejero.model.services.JugadaService;
+import S05T02N01F02GPedroTejero.model.services.JugadaServiceImpl;
 import S05T02N01F02GPedroTejero.model.services.JugadorService;
+import S05T02N01F02GPedroTejero.model.services.JugadorServiceImpl;
 
 @Controller
 @RequestMapping("/Players")
 public class JugadorController {
 
 	@Autowired
-	JugadorService jugadorservice;
+	JugadorServiceImpl jugadorservice;
 	@Autowired
-	JugadaService jugadaservice;
+	JugadaServiceImpl jugadaservice;
 
 	@GetMapping
 	public String crearJugador(Model model) {
@@ -64,27 +66,28 @@ public class JugadorController {
 
 		try {
 			Jugador jugador = jugadorservice.getJugadorbyId(jugador_id);
+			List<JugadaDTO> jugadas = jugadaservice.getAllJugadabyJugador(jugador_id).stream()
+					.map(JugadaMapper::toJugadaDTO).collect(Collectors.toList());
 			if (jugador != null) {
 				JugadorDTO jugadordto = JugadorMapper.toJugadorDTO(jugador);
-				model.addAttribute("jugadas",
-						jugadordto.getJugadas().stream().map(JugadaMapper::toJugadaDTO).collect(Collectors.toList()));
+				model.addAttribute("jugadas",jugadas);
+				
+
 				model.addAttribute("jugador", jugadordto);
 				return "jugador";
 			} else
-				return "jugador_no_encontrado";
+				return "no_encontrado";
 		} catch (Exception e) {
 			return "error";
 		}
 	}
 
 	@PostMapping("/{jugador_id}/games")
-	public String pantallaJugada(@PathVariable(value = "jugador_id") String jugador_id, @ModelAttribute Jugador jugador,
+	public String pantallaJugada(@PathVariable(value = "jugador_id") String jugador_id, @ModelAttribute JugadorDTO jugadordto,
 			RedirectAttributes ra, Model model) {
 		try {
-			JugadaDTO jugadadto = new JugadaDTO(jugador);
+			JugadaDTO jugadadto = new JugadaDTO(jugadordto);
 			jugadaservice.guardarJugada(jugadadto);
-			//jugador.getJugadas().add(JugadaMapper.toJugada(jugadadto));
-			//jugadorservice.guardarJugador(jugador);
 			ra.addFlashAttribute("jugada", jugadadto);
 			return "redirect:/Players/{jugador_id}/jugada";
 			// template.save(newBook);
@@ -138,7 +141,7 @@ public class JugadorController {
 
 				return "showone";
 			} else
-				return "jugador_no_encontrado";
+				return "no_encontrado";
 		} catch (Exception e) {
 			return "error";
 		}

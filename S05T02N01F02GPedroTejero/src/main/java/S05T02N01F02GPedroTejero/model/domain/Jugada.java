@@ -18,16 +18,18 @@ public class Jugada {
 	private byte dos;
 	@DocumentReference(lazy=true)
 	private Jugador jugador;
+	private String jugador_id;
 	
 	public Jugada() {}
 
-	public Jugada(String jugada_id, LocalDate fechajug, byte uno, byte dos, Jugador jugador) {
+	public Jugada(String jugada_id, LocalDate fechajug, byte uno, byte dos, Jugador jugador, String jugador_id) {
 		
 		this.jugada_id = jugada_id;
 		this.fechajug = fechajug;
 		this.uno = uno;
 		this.dos = dos;
 		this.jugador=jugador;
+		this.jugador_id=jugador.getJugador_id();
 	}
 
 	public Jugada(Jugador jugador, LocalDate fechajug, byte uno, byte dos) {
@@ -78,5 +80,6 @@ public class Jugada {
 		this.dos = dos;	
 	
 }
+
 
 }

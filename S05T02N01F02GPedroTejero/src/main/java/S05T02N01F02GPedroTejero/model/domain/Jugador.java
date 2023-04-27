@@ -19,24 +19,24 @@ public class Jugador {
 	private LocalDate fechareg;
 	private String nombre;
 	private String pwd;
-	@DocumentReference
-	private List<Jugada> jugadas;
+	//	@DocumentReference
+	//private List<Jugada> jugadas;
 	
 	public Jugador() {}
 
-	public Jugador(String jugador_id, LocalDate fechareg, String nombre, String pwd, List<Jugada> jugadas) {
+	/*public Jugador(String jugador_id, LocalDate fechareg, String nombre, String pwd, List<Jugada> jugadas) {
 		
 		this.jugador_id = jugador_id;
 		this.fechareg = fechareg;
 		this.nombre = nombre;
 		this.pwd = pwd;
 		this.jugadas = jugadas;
-	}
+	}*/
 	
 	public Jugador(String jugador_id, LocalDate fechareg, String nombre, String pwd) {
 
 		this.jugador_id = jugador_id;
-		this.fechareg = fechareg;
+		this.fechareg = LocalDate.now();
 		this.nombre = nombre;
 		this.pwd = pwd;
 
@@ -80,12 +80,12 @@ public class Jugador {
 		this.pwd = pwd;
 	}
 
-	public List<Jugada> getJugadas() {
+	/*public List<Jugada> getJugadas() {
 		return jugadas;
 	}
 
 	public void setJugadas(List<Jugada> jugadas) {
 		this.jugadas = jugadas;
-	}
+	}*/
 	
 }

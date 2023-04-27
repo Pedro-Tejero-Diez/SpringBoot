@@ -12,7 +12,7 @@ public class JugadorMapper {
 	public static JugadorDTO toJugadorDTO(Jugador jugador) {
 
 		return new JugadorDTO(jugador.getJugador_id(), 
-				jugador.getNombre(), jugador.getJugadas());
+				jugador.getNombre());
 		
 		}
 

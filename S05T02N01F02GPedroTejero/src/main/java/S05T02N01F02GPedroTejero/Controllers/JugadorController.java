@@ -83,8 +83,8 @@ public class JugadorController {
 		try {
 			JugadaDTO jugadadto = new JugadaDTO(jugador);
 			jugadaservice.guardarJugada(jugadadto);
-			jugador.getJugadas().add(JugadaMapper.toJugada(jugadadto));
-			jugadorservice.guardarJugador(jugador);
+			//jugador.getJugadas().add(JugadaMapper.toJugada(jugadadto));
+			//jugadorservice.guardarJugador(jugador);
 			ra.addFlashAttribute("jugada", jugadadto);
 			return "redirect:/Players/{jugador_id}/jugada";
 			// template.save(newBook);

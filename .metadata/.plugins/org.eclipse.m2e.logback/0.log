@@ -4743,3 +4743,5 @@ org.eclipse.core.runtime.CoreException: Could not resolve artifact org.springfra
 2023-04-24 07:40:38,703 [Worker-13: Debug Source Lookup] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/spring-core/6.0.8/spring-core-6.0.8-sources.jar
 2023-04-24 07:40:38,922 [Worker-13: Debug Source Lookup] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/spring-core/6.0.8/spring-core-6.0.8-sources.jar
 2023-04-25 07:12:20,057 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-04-29 06:02:23,386 [Worker-7: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2023-04-29 06:02:29,548 [Worker-7: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Updating Gradle version information cache failed. Using outdated cache.

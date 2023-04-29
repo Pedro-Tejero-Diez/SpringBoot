@@ -41,8 +41,6 @@
     <fullyQualifiedTypeName name="S05T02N01F02GPedroTejero.model.repository.JugadorRepository"/>
     <fullyQualifiedTypeName name="org.springframework.transaction.annotation.Transactional"/>
     <fullyQualifiedTypeName name="S05T02N01F02GPedroTejero.model.dto.JugadorMapper"/>
-    <fullyQualifiedTypeName name="S05T02N01F02GPedroTejero.model.dto.JugadorDTO"/>
-    <fullyQualifiedTypeName name="java.util.Optional"/>
     <fullyQualifiedTypeName name="org.apache.el.stream.Optional"/>
     <fullyQualifiedTypeName name="org.springframework.data.mongodb.core.mapping.DBRef"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
@@ -55,9 +53,11 @@
     <fullyQualifiedTypeName name="S05T02N01F02GPedroTejero.model.repository.JugadaRepository"/>
     <fullyQualifiedTypeName name="org.springframework.data.mongodb.repository.Query"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
-    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="S05T02N01F02GPedroTejero.model.domain.Jugada"/>
     <fullyQualifiedTypeName name="S05T02N01F02GPedroTejero.model.services.JugadorServiceImpl"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="S05T02N01F02GPedroTejero.model.services.JugadaServiceImpl"/>
+    <fullyQualifiedTypeName name="java.util.Optional"/>
+    <fullyQualifiedTypeName name="S05T02N01F02GPedroTejero.model.dto.JugadorDTO"/>
 </qualifiedTypeNameHistroy>

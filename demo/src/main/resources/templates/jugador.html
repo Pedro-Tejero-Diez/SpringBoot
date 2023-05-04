@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>JUEGO DE DADOS</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+		integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+
+<body>
+	<div class="container my-4">
+		<h1>JUEGO DE DADOS</h1>
+		      <hr>
+		<div class="row">
+    <div class="col">
+		<h1>TIRADAS JUGADOR:   <a th:text = "${jugador.nombre}" th:object="${jugador}"></a></h1>
+    </div>
+		<div class="col d-grid gap-2 d-md-flex justify-content-md-end">
+			<form th:action="@{/Players/{id}/games (id=${jugador.jugador_id})}" th:object="${jugador}" method="POST">
+		<input type="submit" class="btn btn-lg btn-primary" value="NUEVA JUGADA">
+		</form>
+		
+	<form th:action="@{/Players/{id}/deleteListado (id=${jugador.jugador_id})}" th:object="${jugador}">
+		<input type="submit" class="btn btn-lg btn-danger" value="ELIMINAR JUGADAS">
+	</form>
+		</div>
+	<hr>
+	<table border="1" class="table table-striped table-bordered">
+		<thead class="thead-dark">
+			<tr>
+				<th>Fecha Jugada</th>
+				<th>Dado 1</th>
+				<th>Dado 2</th>
+				<th>Win</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="JugadaDTO : ${jugadas}">
+
+				<td th:text="${JugadaDTO.fechajug}"></td>
+				<td th:text="${JugadaDTO.uno}"></td>
+				<td th:text="${JugadaDTO.dos}"></td>
+				<td th:text="${JugadaDTO.win}"></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</div>
+
+</html>

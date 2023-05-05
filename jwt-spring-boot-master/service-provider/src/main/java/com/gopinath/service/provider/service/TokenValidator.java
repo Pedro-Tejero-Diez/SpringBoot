@@ -34,10 +34,10 @@ public class TokenValidator {
 
     private final Logger LOG = LoggerFactory.getLogger(TokenValidator.class);
     
-    @Value("{service.provider.pkcs12}")
+    @Value("${service.provider.pkcs12}")
     private String clientPKCS;
     
-    @Value("{token.issuer.x509}")
+    @Value("${token.issuer.x509}")
     private String serverCertificate;
 
     private String user = "unknown";

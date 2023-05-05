@@ -31,13 +31,13 @@ public class TokenService {
 
     private final Logger LOG = LoggerFactory.getLogger(TokenService.class);
     
-    @Value("{token.issuer.url}")
+    @Value("${token.issuer.url}")
     private String issuer;
     
-    @Value("{token.issuer.pkcs12}")
+    @Value("${token.issuer.pkcs12}")
     private String serverPKCS;
     
-    @Value("{service.provider.x509}")
+    @Value("${service.provider.x509}")
     private String clientCertificate;
 
     private RSAKey getPublicKey(String certificateFile) {

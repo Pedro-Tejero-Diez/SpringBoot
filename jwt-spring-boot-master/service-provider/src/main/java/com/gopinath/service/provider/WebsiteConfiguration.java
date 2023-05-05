@@ -10,7 +10,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @EnableWebMvc
 public class WebsiteConfiguration implements WebMvcConfigurer{    
         
-    @Value("{token.issuer.url}")
+    @Value("${token.issuer.url}")
     private String tokenIssuer;
     
     @Override

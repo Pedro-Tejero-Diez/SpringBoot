@@ -14,32 +14,37 @@ import org.springframework.data.mongodb.core.mapping.DocumentReference;
 public class Jugador {
 	
 	@Id
-	private String jugador_id;
+	private String _id;
 	private LocalDate fechareg;
 	private String nombre;
 	private String pwd;
-	private String token;
+	private List<Role> roles;
+	//private String token;
 	@ReadOnlyProperty
 	@DocumentReference(lookup="{'jugador':?#{#self._id} }")
 	private List<Jugada> jugadas;
 	
 	public Jugador() {}
 
-	public Jugador(String jugador_id, LocalDate fechareg, String nombre, String pwd, List<Jugada> jugadas) {
+	public Jugador(LocalDate fechareg, String nombre, String pwd, List<Jugada> jugadas, List<Role> roles) {
 		
-		this.jugador_id = jugador_id;
+		
 		this.fechareg = fechareg;
 		this.nombre = nombre;
 		this.pwd = pwd;
 		this.jugadas = jugadas;
+		this.roles=roles;
+		
 	}
 	
-	public Jugador(String jugador_id, LocalDate fechareg, String nombre, String pwd) {
+	public Jugador(LocalDate fechareg, String nombre,String pwd, List<Role> roles) {
 
-		this.jugador_id = jugador_id;
+		
 		this.fechareg = fechareg;
 		this.nombre = nombre;
 		this.pwd = pwd;
+		this.roles=roles;
+	
 
 }
 	public Jugador(LocalDate fechareg, String nombre, String pwd) {
@@ -49,13 +54,14 @@ public class Jugador {
 		this.pwd = pwd;
 	}
 
-	public String getJugador_id() {
-		return jugador_id;
-	}
 
-	public void setJugador_id(String jugador_id) {
-		this.jugador_id = jugador_id;
-	}
+	public String get_id() {
+	return _id;
+}
+
+public void set_id(String _id) {
+	this._id = _id;
+}
 
 	public LocalDate getFechareg() {
 		return fechareg;
@@ -89,12 +95,23 @@ public class Jugador {
 		this.jugadas = jugadas;
 	}
 
-	public String getToken() {
+	public List<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
+	}
+
+
+
+
+	/*public String getToken() {
 		return token;
 	}
 
 	public void setToken(String token) {
 		this.token = token;
-	}
+	}*/
 	
 }

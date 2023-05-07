@@ -35,7 +35,8 @@ public class JugadorServiceImpl implements JugadorService {
 
 	@Override
 	public void guardarJugador(Jugador jugador) {
-		jugadorepository.save(new Jugador(jugador.getFechareg(), jugador.getNombre(), jugador.getPwd()));
+		jugadorepository.save(new Jugador(jugador.getFechareg(), 
+				jugador.getNombre(), jugador.getPwd(), jugador.getRoles()));
 
 	}
 

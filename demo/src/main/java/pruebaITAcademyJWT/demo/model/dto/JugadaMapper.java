@@ -17,7 +17,7 @@ public class JugadaMapper {
 	static	JugadorRepository jugadorepo;
 
 	public static JugadaDTO toJugadaDTO(Jugada jugada) {
-		String jugador_id = jugada.getJugador().getJugador_id();
+		String jugador_id = jugada.getJugador().get_id();
 		LocalDate fechajug = jugada.getFechajug();
 		byte uno = jugada.getUno();
 		byte dos = jugada.getDos();

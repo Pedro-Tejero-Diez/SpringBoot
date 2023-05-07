@@ -17,7 +17,7 @@ public class JugadorMapper {
 
 		
 		
-		return new JugadorDTO(jugador.getJugador_id(), 
+		return new JugadorDTO(jugador.get_id(), 
 				jugador.getNombre(), jugador.getJugadas()); 
 		}
 

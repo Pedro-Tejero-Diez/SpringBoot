@@ -21,19 +21,21 @@ public class Jugador {
 	private LocalDate fechareg;
 	private String nombre;
 	private String pwd;
+	private Eroles rol;
 	@ReadOnlyProperty
 	@DocumentReference(lookup="{'jugador':?#{#self._id} }")
 	private List<Jugada> jugadas;
 	
 	public Jugador() {}
 
-	public Jugador(String jugador_id, LocalDate fechareg, String nombre, String pwd, List<Jugada> jugadas) {
+	public Jugador(String jugador_id, LocalDate fechareg, String nombre, String pwd, Eroles rol, List<Jugada> jugadas) {
 		
 		this.jugador_id = jugador_id;
 		this.fechareg = fechareg;
 		this.nombre = nombre;
 		this.pwd = pwd;
 		this.jugadas = jugadas;
+		this.rol=Eroles.ROLE_USER;
 	}
 	
 	public Jugador(String jugador_id, LocalDate fechareg, String nombre, String pwd) {
@@ -42,6 +44,7 @@ public class Jugador {
 		this.fechareg = fechareg;
 		this.nombre = nombre;
 		this.pwd = pwd;
+		this.rol=Eroles.ROLE_USER;
 
 }
 	public Jugador(LocalDate fechareg, String nombre, String pwd) {
@@ -49,6 +52,7 @@ public class Jugador {
 		this.fechareg = LocalDate.now();
 		this.nombre = nombre;
 		this.pwd = pwd;
+		this.rol=Eroles.ROLE_USER;
 	}
 
 	public String getJugador_id() {
@@ -89,6 +93,14 @@ public class Jugador {
 
 	public void setJugadas(List<Jugada> jugadas) {
 		this.jugadas = jugadas;
+	}
+
+	public Eroles getRol() {
+		return rol;
+	}
+
+	public void setRol(Eroles rol) {
+		this.rol = rol;
 	}
 	
 }

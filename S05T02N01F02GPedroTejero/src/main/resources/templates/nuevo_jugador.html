@@ -16,6 +16,7 @@
         <form action="#" th:action="@{/Players/add}" th:object="${jugador}" method="POST">
 			
 			<input type="hidden" th:field="*{fechareg}" />
+			<input type="hidden" th:field="*{rol}" />
 			
             <input type="text" th:field="*{nombre}" placeholder="Nombre Usuario" class="form-control mb-3 col-3">
 

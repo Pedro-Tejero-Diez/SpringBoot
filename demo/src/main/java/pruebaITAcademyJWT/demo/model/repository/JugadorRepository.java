@@ -8,7 +8,7 @@ import pruebaITAcademyJWT.demo.model.domain.Jugador;
 
  public interface JugadorRepository extends MongoRepository<Jugador, String> {
 	 
-	 //Optional<Jugador> findByNombre(String nombre);
+	 Optional<Jugador> findByNombre(String nombre);
 	 
 	// Boolean existsByJugadorNombre (String nombre);
 

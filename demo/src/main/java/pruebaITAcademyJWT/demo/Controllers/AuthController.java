@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.annotation.Validated;
@@ -27,14 +28,16 @@ import pruebaITAcademyJWT.demo.payload.response.JwtResponse;
 import pruebaITAcademyJWT.demo.payload.response.MessageResponse;
 import pruebaITAcademyJWT.demo.security.WebSecurityConfiguration;
 import pruebaITAcademyJWT.demo.security.jwt.JwtUtils;
+import pruebaITAcademyJWT.demo.security.services.CustomAuthenticationManager;
 import pruebaITAcademyJWT.demo.security.services.UserDetailsImpl;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
+	
 	@Autowired
-	AuthenticationManager authenticationManager;
+	CustomAuthenticationManager authenticationManager;
 
 	@Autowired
 	JugadorRepository userRepository;
@@ -53,12 +56,17 @@ public class AuthController {
 
 		SecurityContextHolder.getContext().setAuthentication(authentication);
 		String jwt = jwtUtils.generateJwtToken(authentication);
+		
+		 /*SecurityContext context = SecurityContextHolder.createEmptyContext();
+		 context.setAuthentication(authentication);
+		 SecurityContextHolder.setContext(context);*/
 
 		UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
 		List<String> roles = userDetails.getAuthorities().stream().map(item -> item.getAuthority())
 				.collect(Collectors.toList());
 
 		return ResponseEntity.ok(new JwtResponse(jwt, userDetails.getUsername()));
+		//return new ResponseEntity<>("todo OK", HttpStatus.OK);
 	}
 
 	@PostMapping("/signup")

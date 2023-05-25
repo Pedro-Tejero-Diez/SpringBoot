@@ -8,7 +8,7 @@ import S05T02N01F03GPedroTejero.model.domain.Jugador;
 
 public interface JugadorRepository extends MongoRepository<Jugador, String> {
 
-	Optional<Jugador> findByNombre(String nombre);
+	Optional<Jugador> findByusername(String username);
 
 	// Boolean existsByJugadorNombre (String nombre);
 

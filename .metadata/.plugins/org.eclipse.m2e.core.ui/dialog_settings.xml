@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="C:\Users\pedro\Spring workspace\demoJWTSQL"/>
 			<item value="C:\Users\pedro\Spring workspace\jwt-spring-boot-master\token-issuer"/>
 			<item value="C:\Users\pedro\Spring workspace\jwt-spring-boot-master\service-provider"/>
 			<item value="C:\Users\pedro\Spring workspace\S05T01N01PedroTejero"/>

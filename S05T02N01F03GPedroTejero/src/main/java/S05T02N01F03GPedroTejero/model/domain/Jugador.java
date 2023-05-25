@@ -16,7 +16,7 @@ public class Jugador {
 	@Id
 	private String _id;
 	private LocalDate fechareg;
-	private String nombre;
+	private String username;
 	private String pwd;
 	private List<Role> roles;
 	@ReadOnlyProperty
@@ -26,37 +26,37 @@ public class Jugador {
 	public Jugador() {
 	}
 
-	public Jugador(LocalDate fechareg, String nombre, String pwd, List<Jugada> jugadas, List<Role> roles) {
+	public Jugador(LocalDate fechareg, String username, String pwd, List<Jugada> jugadas, List<Role> roles) {
 
 		this.fechareg = LocalDate.now();
-		this.nombre = nombre;
+		this.username = username;
 		this.jugadas = jugadas;
 		this.roles = roles;
-		this.pwd = passwordEncoder().encode(pwd);
+		this.pwd = pwd;
 
 	}
 
-	public Jugador(LocalDate fechareg, String nombre, String pwd, List<Role> roles) {
+	public Jugador(LocalDate fechareg, String username, String pwd, List<Role> roles) {
 
 		this.fechareg = LocalDate.now();;
-		this.nombre = nombre;
-		this.pwd = passwordEncoder().encode(pwd);
+		this.username = username;
+		this.pwd = pwd;
 		this.roles = roles;
 
 	}
 
-	public Jugador(LocalDate fechareg, String nombre, String pwd) {
+	public Jugador(LocalDate fechareg, String username, String pwd) {
 
 		this.fechareg = LocalDate.now();
-		this.nombre = nombre;
-		this.pwd = passwordEncoder().encode(pwd);
+		this.username = username;
+		this.pwd = pwd;
 	}
 
-	public Jugador(String nombre, String pwd) {
+	public Jugador(String username, String pwd) {
 
 		this.fechareg = LocalDate.now();
-		this.nombre = nombre;
-		this.pwd = passwordEncoder().encode(pwd);
+		this.username = username;
+		this.pwd = pwd;
 	}
 
 	public String get_id() {
@@ -75,12 +75,12 @@ public class Jugador {
 		this.fechareg = fechareg;
 	}
 
-	public String getNombre() {
-		return nombre;
+	public String getusername() {
+		return username;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setusername(String username) {
+		this.username = username;
 	}
 
 	public String getPwd() {
@@ -105,10 +105,6 @@ public class Jugador {
 
 	public void setRoles(List<Role> roles) {
 		this.roles = roles;
-	}
-
-	public PasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder();
 	}
 
 }

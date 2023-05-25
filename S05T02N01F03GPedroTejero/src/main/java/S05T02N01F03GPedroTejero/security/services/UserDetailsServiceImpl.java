@@ -3,7 +3,6 @@ package S05T02N01F03GPedroTejero.security.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
@@ -19,7 +18,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
 	@Override
 	@Transactional
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+	public UserDetailsImpl loadUserByUsername(String username) throws UsernameNotFoundException {
 
 		List<Jugador> jugadores = jugadorepository.findAll();
 		Jugador jugador = jugadores.get(0);

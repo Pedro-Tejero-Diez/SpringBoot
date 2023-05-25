@@ -1,7 +1,9 @@
 package S05T02N01F03GPedroTejero.Controllers;
 
 import java.util.List;
+import java.util.Set;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,11 +22,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import S05T02N01F03GPedroTejero.model.domain.Role;
 import S05T02N01F03GPedroTejero.model.repository.JugadorRepository;
+import S05T02N01F03GPedroTejero.model.repository.RoleRepository;
 import S05T02N01F03GPedroTejero.security.jwt.JwtUtils;
 import S05T02N01F03GPedroTejero.payload.request.LoginRequest;
 import S05T02N01F03GPedroTejero.payload.request.SignupRequest;
 import S05T02N01F03GPedroTejero.payload.response.JwtResponse;
 import S05T02N01F03GPedroTejero.security.services.UserDetailsImpl;
+import S05T02N01F03GPedroTejero.model.domain.Erole;
 import S05T02N01F03GPedroTejero.model.domain.Jugador;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -43,6 +47,11 @@ public class AuthController {
 
 	@Autowired
 	JwtUtils jwtUtils;
+	
+	@Autowired
+	RoleRepository roleRepository;
+	@Autowired
+	SignupRequest signuprequest;
 
 	@PostMapping("/signin")
 	public ResponseEntity<?> authenticateUser(@Validated @RequestBody LoginRequest loginRequest) {
@@ -52,36 +61,63 @@ public class AuthController {
 
 		SecurityContextHolder.getContext().setAuthentication(authentication);
 		String jwt = jwtUtils.generateJwtToken(authentication);
-
-		UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
-
-		List<String> roles = userDetails.getAuthorities().stream().map(item -> item.getAuthority())
+		
+		UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();		
+		List<String> roles = userDetails.getAuthorities().stream()
+				.map(item -> item.getAuthority())
 				.collect(Collectors.toList());
 
-		return ResponseEntity.ok(new JwtResponse(jwt, userDetails.getUsername()));
-
+		return ResponseEntity.ok(new JwtResponse(jwt, 
+												 userDetails.getId(), 
+												 userDetails.getUsername(), 
+												 roles));
 	}
 
-	// Create new user's account
-
 	@PostMapping("/signup")
-	public String registerUser(@Validated @RequestBody SignupRequest signUpRequest) {
-		if (userRepository.existsById(signUpRequest.getUsername())) {
-			// error: nombre de usuario ya en la base de datos
-			return "Error";
+	public ResponseEntity<?> registerUser(@Validated @RequestBody SignupRequest signUpRequest) {
+		if (userRepository.findByusername(signuprequest.getUsername()) {
+			return ResponseEntity
+					.badRequest()
+					.body(new MessageResponse("Error: Username is already taken!"));
 		}
 
-		// creación nuevo jugador
+		// Create new user's account
+		Jugador user = new Jugador(signUpRequest.getUsername(), 
+							 encoder.encode(signUpRequest.getPassword()));
 
-		Jugador newuser = new Jugador(signUpRequest.getUsername(), encoder.encode(signUpRequest.getPassword()));
+		Set<String> strRoles = signUpRequest.getRole();
+		Set<Role> roles = new HashSet<>();
 
-		List<Role> roles = new ArrayList<>();
-		Role rol = new Role("USER");
-		roles.add(rol);
-		newuser.setRoles(roles);
-		userRepository.save(newuser);
+		if (strRoles == null) {
+			Role userRole = roleRepository.findByName(ERole.ROLE_USER)
+					.orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+			roles.add(userRole);
+		} else {
+			strRoles.forEach(role -> {
+				switch (role) {
+				case "admin":
+					Role adminRole = roleRepository.findByName(ERole.ROLE_ADMIN)
+							.orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+					roles.add(adminRole);
 
-		return "exito";
+					break;
+				case "mod":
+					Role modRole = roleRepository.findByName(ERole.ROLE_MODERATOR)
+							.orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+					roles.add(modRole);
 
+					break;
+				default:
+					Role userRole = roleRepository.findByName(ERole.ROLE_USER)
+							.orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+					roles.add(userRole);
+				}
+			});
+		}
+
+		user.setRoles(roles);
+		userRepository.save(user);
+
+		return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
 	}
 }

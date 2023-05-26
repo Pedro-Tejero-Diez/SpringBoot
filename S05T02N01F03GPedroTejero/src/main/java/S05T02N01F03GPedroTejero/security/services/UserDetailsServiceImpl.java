@@ -26,7 +26,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 		boolean igual = false;
 		while (!igual && i < jugadores.size()) {
 			jugador = jugadores.get(i);
-			if (jugadores.get(i).getNombre().equals(username)) {
+			if (jugadores.get(i).getusername().equals(username)) {
 				igual = true;
 			}
 			i++;

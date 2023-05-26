@@ -11,7 +11,7 @@ public class JugadorMapper {
 
 	public static JugadorDTO toJugadorDTO(Jugador jugador) {
 
-		return new JugadorDTO(jugador.get_id(), jugador.getNombre(), jugador.getJugadas());
+		return new JugadorDTO(jugador.get_id(), jugador.getusername(), jugador.getJugadas());
 	}
 
 	public static Jugador toJugador(JugadorDTO jugadordto, String pwd) {

@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.ReadOnlyProperty;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.DocumentReference;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -17,7 +18,8 @@ public class Jugador {
 	private String _id;
 	private LocalDate fechareg;
 	private String username;
-	private String pwd;
+	private String password;
+	@DBRef
 	private List<Role> roles;
 	@ReadOnlyProperty
 	@DocumentReference(lookup = "{'jugador':?#{#self._id} }")
@@ -26,37 +28,37 @@ public class Jugador {
 	public Jugador() {
 	}
 
-	public Jugador(LocalDate fechareg, String username, String pwd, List<Jugada> jugadas, List<Role> roles) {
+	public Jugador(LocalDate fechareg, String username, String password, List<Jugada> jugadas, List<Role> roles) {
 
 		this.fechareg = LocalDate.now();
 		this.username = username;
 		this.jugadas = jugadas;
 		this.roles = roles;
-		this.pwd = pwd;
+		this.password = password;
 
 	}
 
-	public Jugador(LocalDate fechareg, String username, String pwd, List<Role> roles) {
+	public Jugador(LocalDate fechareg, String username, String password, List<Role> roles) {
 
 		this.fechareg = LocalDate.now();;
 		this.username = username;
-		this.pwd = pwd;
+		this.password = password;
 		this.roles = roles;
 
 	}
 
-	public Jugador(LocalDate fechareg, String username, String pwd) {
+	public Jugador(LocalDate fechareg, String username, String password) {
 
 		this.fechareg = LocalDate.now();
 		this.username = username;
-		this.pwd = pwd;
+		this.password = password;
 	}
 
-	public Jugador(String username, String pwd) {
+	public Jugador(String username, String password) {
 
 		this.fechareg = LocalDate.now();
 		this.username = username;
-		this.pwd = pwd;
+		this.password = password;
 	}
 
 	public String get_id() {
@@ -83,12 +85,12 @@ public class Jugador {
 		this.username = username;
 	}
 
-	public String getPwd() {
-		return pwd;
+	public String getpassword() {
+		return password;
 	}
 
-	public void setPwd(String pwd) {
-		this.pwd = pwd;
+	public void setpassword(String password) {
+		this.password = password;
 	}
 
 	public List<Jugada> getJugadas() {

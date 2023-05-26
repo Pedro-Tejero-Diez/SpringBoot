@@ -10,6 +10,6 @@ public interface JugadorRepository extends MongoRepository<Jugador, String> {
 
 	Optional<Jugador> findByusername(String username);
 
-	// Boolean existsByJugadorNombre (String nombre);
+	Boolean existsByJugadorusername (String username);
 
 }

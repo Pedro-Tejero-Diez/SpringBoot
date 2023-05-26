@@ -21,7 +21,7 @@ public class JugadorServiceImpl implements JugadorService {
 	public void updateJugador(String jugador_id, JugadorDTO jugadordto) {
 
 		Jugador jugador = jugadorepository.findById(jugador_id).get();
-		jugador.setNombre(jugadordto.getNombre());
+		jugador.setusername(jugadordto.getNombre());
 		jugadorepository.save(jugador);
 
 	}
@@ -34,7 +34,7 @@ public class JugadorServiceImpl implements JugadorService {
 	@Override
 	public void guardarJugador(Jugador jugador) {
 		jugadorepository
-				.save(new Jugador(jugador.getFechareg(), jugador.getNombre(), jugador.getPwd(), jugador.getRoles()));
+				.save(new Jugador(jugador.getFechareg(), jugador.getusername(), jugador.getpassword(), jugador.getRoles()));
 
 	}
 

@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import S05T02N01F03GPedroTejero.model.domain.Jugador;
+import S05T02N01F03GPedroTejero.model.domain.Erole;
 
 @Service
 public class UserDetailsImpl implements UserDetails {
@@ -41,10 +42,14 @@ public class UserDetailsImpl implements UserDetails {
 
 	public static UserDetailsImpl build(Jugador jugador) {
 		List<GrantedAuthority> authorities = jugador.getRoles().stream()
-				.map(role -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList());
-		return new UserDetailsImpl(jugador.get_id(), jugador.getNombre(), jugador.getPwd(), authorities);
-	}
-
+				.map(role -> new SimpleGrantedAuthority(role.getName().name()))
+				.collect(Collectors.toList());
+		return new UserDetailsImpl(
+			jugador.get_id(), 
+			jugador.getusername(), 
+			jugador.getpassword(), 
+			authorities);
+}
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		return authorities;

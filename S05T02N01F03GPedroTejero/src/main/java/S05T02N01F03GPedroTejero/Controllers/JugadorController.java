@@ -57,9 +57,8 @@ public class JugadorController {
 	@PostMapping("/add")
 	public String guardarJugador(@ModelAttribute("jugador") Jugador jugador) {
 
-		Role rol = new Role("USER");
 		try {
-			jugador.getRoles().add(rol);
+			
 			jugadorservice.guardarJugador(jugador);
 
 			return "exito";

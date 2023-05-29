@@ -6953,3 +6953,4 @@ org.apache.maven.project.ProjectBuildingException: Some problems were encountere
 2023-05-26 05:22:50,089 [Worker-4: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2023-05-26 05:22:50,090 [Worker-4: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pedro\Spring workspace\jwt-spring-boot-master\token-issuer\src\test\resources
 2023-05-28 06:09:05,982 [Worker-7: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2023-05-29 05:36:20,532 [Worker-6: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.

@@ -8,9 +8,9 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 import S05T02N01F03GPedroTejero.model.domain.Erole;
 
-public interface RoleRepository extends MongoRepository<Role, Integer> {
+public interface RoleRepository extends MongoRepository<Role, String> {
 	
 
-		Optional<Role> findByName(Erole erole);
+		Optional<Role> findByName(Erole name);
 
 }

@@ -55,9 +55,9 @@
     <fullyQualifiedTypeName name="S05T02N01F03GPedroTejero.model.repository.RoleRepository"/>
     <fullyQualifiedTypeName name="java.util.HashSet"/>
     <fullyQualifiedTypeName name="java.util.Set"/>
-    <fullyQualifiedTypeName name="S05T02N01F03GPedroTejero.model.domain.Erole"/>
     <fullyQualifiedTypeName name="org.springframework.data.mongodb.core.mapping.DBRef"/>
-    <fullyQualifiedTypeName name="S05T02N01F03GPedroTejero.model.domain.Role"/>
     <fullyQualifiedTypeName name="S05T02N01F03GPedroTejero.payload.response.MessageResponse"/>
     <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="S05T02N01F03GPedroTejero.model.domain.Role"/>
+    <fullyQualifiedTypeName name="S05T02N01F03GPedroTejero.model.domain.Erole"/>
 </qualifiedTypeNameHistroy>

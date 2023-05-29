@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.http.ResponseEntity;
 
 
-import S05T02N01F03GPedroTejero.model.domain.Role;
 import S05T02N01F03GPedroTejero.model.repository.JugadorRepository;
 import S05T02N01F03GPedroTejero.model.repository.RoleRepository;
 import S05T02N01F03GPedroTejero.security.jwt.JwtUtils;
@@ -32,6 +31,7 @@ import S05T02N01F03GPedroTejero.payload.response.MessageResponse;
 import S05T02N01F03GPedroTejero.security.services.UserDetailsImpl;
 import S05T02N01F03GPedroTejero.model.domain.Erole;
 import S05T02N01F03GPedroTejero.model.domain.Jugador;
+import S05T02N01F03GPedroTejero.model.domain.Role;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
@@ -75,9 +75,10 @@ public class AuthController {
 				 roles));
 	}
 
+
 	@PostMapping("/signup")
 	public ResponseEntity<?> registerUser(@Validated @RequestBody SignupRequest signUpRequest) {
-		if (userRepository.existsByJugadorusername(signuprequest.getUsername())) {
+		if (userRepository.existsByusername(signuprequest.getUsername())) {
 			return ResponseEntity
 					.badRequest()
 					.body(new MessageResponse("Error: Username is already taken!"));
@@ -91,23 +92,27 @@ public class AuthController {
 		List<Role> roles = new ArrayList<>();
 
 		if (strRoles == null) {
-			Role userRole = new Role(Erole.ROLE_USER);
-			roles.add(userRole);
+			Role jugadorRole = roleRepository.findByName(Erole.ROLE_USER).get();
+	      roles.add(jugadorRole);
 		} else {
 			strRoles.forEach(role -> {
 				switch (role) {
 				case "admin":
-					roles.add(new Role (Erole.ROLE_ADMIN));
+				    Role adminRole = roleRepository.findByName(Erole.ROLE_ADMIN).get();
+		          roles.add(adminRole);
 					break;
 				default:
-					roles.add(new Role (Erole.ROLE_USER));
-				}
-			});
-		}
+					  Role userRole = roleRepository.findByName(Erole.ROLE_USER);
+		          roles.add(userRole);
+			     }
+		      });
+		    
 
 		user.setRoles(roles);
 		userRepository.save(user);
 
 		return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
-	}
+	
 }
+	}
+

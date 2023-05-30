@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import S05T02N01F03GPedroTejero.model.domain.Jugador;
-import S05T02N01F03GPedroTejero.model.domain.Erole;
 
 @Service
 public class UserDetailsImpl implements UserDetails {
@@ -42,7 +41,7 @@ public class UserDetailsImpl implements UserDetails {
 
 	public static UserDetailsImpl build(Jugador jugador) {
 		List<GrantedAuthority> authorities = jugador.getRoles().stream()
-				.map(role -> new SimpleGrantedAuthority(role.getName().name()))
+				.map(role -> new SimpleGrantedAuthority(role.getName()))
 						.collect(Collectors.toList());
 			
 				

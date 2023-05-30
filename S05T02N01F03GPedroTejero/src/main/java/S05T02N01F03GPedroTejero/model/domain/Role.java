@@ -10,22 +10,22 @@ public class Role {
 	private String _id;
 	
 	
-	private Erole name;
+	private String name;
 
 	public Role() {
 
 	}
 	
-	public Role(Erole name) {
+	public Role(String name) {
 		this.name=name;
 		
 	}
 
-	public Erole getName() {
+	public String getName() {
 		return name;
 	}
 
-	public void setName(Erole name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 

@@ -1,8 +1,9 @@
 package S05T02N01F03GPedroTejero.payload.request;
 
 import java.util.List;
-import java.util.Set;
 
+import org.springframework.stereotype.Component;
+@Component
 public class SignupRequest {
 
 	private String username;

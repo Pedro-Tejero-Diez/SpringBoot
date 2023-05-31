@@ -1,10 +1,14 @@
 package S05T02N01F03GPedroTejero.security.jwt;
 
+import java.util.Collections;
+
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.stereotype.Component;
+
+import S05T02N01F03GPedroTejero.security.services.UserDetailsImpl;
 
 @Component
 public class AuthManager implements AuthenticationManager{
@@ -14,12 +18,14 @@ public class AuthManager implements AuthenticationManager{
 		        String username = authentication.getName();
 		        String password = authentication.getCredentials().toString();
 
-		        // Perform your authentication logic here
-		        // You can use your own authentication provider or validate the credentials against your user database
 
 		        // Example: Simple authentication with hardcoded credentials
 		        if ("admin".equals(username) && "password".equals(password)) {
-		            return new UsernamePasswordAuthenticationToken(username, password);
+		        	String id = "1";
+		        	 UserDetailsImpl userDetails = new UserDetailsImpl(id, username, password, Collections.emptyList());
+		             return new UsernamePasswordAuthenticationToken(userDetails, password, userDetails.getAuthorities());
+		          
+		            
 		        } else {
 		            throw new AuthenticationException("Authentication failed") {
 		                // Implement your own exception handling logic if needed

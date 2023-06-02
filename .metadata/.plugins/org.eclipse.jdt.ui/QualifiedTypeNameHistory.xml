@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="org.springframework.security.core.context.SecurityContextHolder"/>
-    <fullyQualifiedTypeName name="pruebaITAcademyJWT.demo.security.services.UserDetailsImpl"/>
-    <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
     <fullyQualifiedTypeName name="pruebaITAcademyJWT.demo.payload.response.JwtResponse"/>
     <fullyQualifiedTypeName name="pruebaITAcademyJWT.demo.payload.request.SignupRequest"/>
     <fullyQualifiedTypeName name="pruebaITAcademyJWT.demo.payload.response.MessageResponse"/>
@@ -60,4 +57,7 @@
     <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
     <fullyQualifiedTypeName name="java.util.Collections"/>
     <fullyQualifiedTypeName name="S05T02N01F03GPedroTejero.security.services.UserDetailsImpl"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="S05T02N01F03GPedroTejero.security.services.UserDetailsServiceImpl"/>
+    <fullyQualifiedTypeName name="S05T02N01F03GPedroTejero.model.services.JugadorServiceImpl"/>
 </qualifiedTypeNameHistroy>

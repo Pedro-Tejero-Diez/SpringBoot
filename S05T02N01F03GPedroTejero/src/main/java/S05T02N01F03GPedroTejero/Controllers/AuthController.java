@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.http.ResponseEntity;
 
 import S05T02N01F03GPedroTejero.model.repository.JugadorRepository;
+import S05T02N01F03GPedroTejero.model.services.JugadorServiceImpl;
 import S05T02N01F03GPedroTejero.security.jwt.AuthManager;
 import S05T02N01F03GPedroTejero.security.jwt.JwtUtils;
 import S05T02N01F03GPedroTejero.payload.request.LoginRequest;
@@ -41,6 +42,9 @@ public class AuthController {
 
 	@Autowired
 	JugadorRepository userRepository;
+	
+	@Autowired
+	JugadorServiceImpl jugadorserviceimpl;
 
 	@Autowired
 	PasswordEncoder encoder;
@@ -74,7 +78,7 @@ public class AuthController {
 		}
 
 		// Create new user's account
-		Jugador user = new Jugador(signUpRequest.getUsername(), encoder.encode(signUpRequest.getPassword()));
+		Jugador user = new Jugador(signUpRequest.getUsername(), signUpRequest.getPassword());
 
 		List<String> strRoles = signUpRequest.getRole();
 		List<Role> roles = new ArrayList<>();
@@ -95,7 +99,7 @@ public class AuthController {
 			});
 		}
 			user.setRoles(roles);
-			userRepository.save(user);
+			jugadorserviceimpl.guardarJugador(user);
 
 			return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
 

@@ -3,6 +3,7 @@ package S05T02N01F03GPedroTejero.model.domain;
 import java.time.LocalDate;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.ReadOnlyProperty;
 import org.springframework.data.mongodb.core.mapping.DBRef;
@@ -19,7 +20,6 @@ public class Jugador {
 	private LocalDate fechareg;
 	private String username;
 	private String password;
-	@DBRef
 	private List<Role> roles;
 	@ReadOnlyProperty
 	@DocumentReference(lookup = "{'jugador':?#{#self._id} }")
@@ -34,7 +34,7 @@ public class Jugador {
 		this.username = username;
 		this.jugadas = jugadas;
 		this.roles = roles;
-		this.password = password;
+		this.password = passwordEncoder().encode(password);
 
 	}
 
@@ -42,7 +42,7 @@ public class Jugador {
 
 		this.fechareg = LocalDate.now();;
 		this.username = username;
-		this.password = password;
+		this.password = passwordEncoder().encode(password);
 		this.roles = roles;
 
 	}
@@ -51,14 +51,14 @@ public class Jugador {
 
 		this.fechareg = LocalDate.now();
 		this.username = username;
-		this.password = password;
+		this.password = passwordEncoder().encode(password);
 	}
 
 	public Jugador(String username, String password) {
 
 		this.fechareg = LocalDate.now();
 		this.username = username;
-		this.password = password;
+		this.password = passwordEncoder().encode(password);
 	}
 
 	public String get_id() {
@@ -107,6 +107,9 @@ public class Jugador {
 
 	public void setRoles(List<Role> roles) {
 		this.roles = roles;
+	}
+	public PasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
 	}
 
 }

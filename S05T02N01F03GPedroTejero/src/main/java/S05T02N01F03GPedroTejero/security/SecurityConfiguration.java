@@ -5,8 +5,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 //import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -18,7 +21,7 @@ import S05T02N01F03GPedroTejero.security.jwt.AuthTokenFilter;
 import S05T02N01F03GPedroTejero.security.services.UserDetailsServiceImpl;
 
 @Configuration
-//@EnableMethodSecurity
+//@EnableWebSecurity
 public class SecurityConfiguration {
 	@Autowired
 	UserDetailsServiceImpl userDetailsService;
@@ -40,6 +43,10 @@ public class SecurityConfiguration {
 
 		return authProvider;
 	}
+	
+	/* public void configure(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
+	        authenticationManagerBuilder.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
+	    }*/
 
 	@Bean
 	public PasswordEncoder passwordEncoder() {
@@ -48,9 +55,10 @@ public class SecurityConfiguration {
 
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		http.cors().and().csrf().disable().exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
-				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-				.authorizeHttpRequests().requestMatchers("/api/auth/**")
-				.permitAll().anyRequest().authenticated();
+		.authorizeHttpRequests().requestMatchers("/api/auth/**")
+		.permitAll().anyRequest().authenticated().and()
+				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+				
 
 		http.authenticationProvider(authenticationProvider());
 
